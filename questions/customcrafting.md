@@ -301,7 +301,7 @@ Below is an example of how to implement this approach:
 ```mcfunction
 # function example:recipe_reset
 advancement revoke @s from example:recipe/root
-clear @s minecraft:knowledge_book
+clear @s knowledge_book
 recipe take @s example:some_custom_result
 recipe take @s example:another_custom_result
 recipe take @s example:more_custom_result
@@ -396,7 +396,7 @@ Below is an example for creating an advancement for a custom craft, which must h
 ```mcfunction
 # function example:recipe_reset
 advancement revoke @s from example:recipe/root
-clear @s minecraft:knowledge_book
+clear @s knowledge_book
 ```
 
 </details>

@@ -5,9 +5,9 @@
   - [Passenger entity](#passenger-entity)
   - [Reading data by UUID (1.20.2+)](#reading-data-by-uuid-1202)
 
-This article applies to Java Edition only. For Bedrock Edition the method is described in this wiki article: [Detect the player killing entities and players](/wiki/questions/playerkills#bedrock)
+This article applies to Java Edition only. For Bedrock Edition, the method is described in this wiki article: [Detect the player killing entities and players](/wiki/questions/playerkills#bedrock)
 
-When a mob begins to play the death animation, then this mob cannot be selected using the target selector, this is the main difficulty in detecting the death of a mob, but there are still several ways to do this, but each has its own limitations. Each of the methods listed below is completely resistant to unloading mobs from loaded chunks and there will be no false positives.
+When a mob begins to play the death animation, then this mob cannot be selected using the target selector, this is the main difficulty in detecting the death of a mob, but there are still several ways to do this, but each has its own limitations. Each of the methods listed below is completely resistant to unloading mobs from loaded chunks, and there will be no false positives.
 
 ----
 
@@ -47,7 +47,7 @@ Key points:
 * can detect mob death only if the killer is a player
 * requires using a datapack
 
-Here's a quick example to detect if a any skeleton type with the tag some\_tag was killed by a player:
+Here's a quick example to detect if any skeleton type with the tag some\_tag was killed by a player:
 
 <details markdown="1">
   <summary style="color: #e67e22; font-weight: bold;">See example</summary>
@@ -90,7 +90,7 @@ say Skeleton with tag some_tag has died.
 
 This method is a direct way to check the death of a specific mob with any cause of death, not just due to the player.
 
-This method is based on using a [marker entity](https://minecraft.wiki/w/Marker) as a passenger on a mob that needs to be checked for death. The passenger entity will ride the entity until the end of the death animation, so using this you can check the `DeathTime` tag of a mob with a death animation. This way also has a unique opportunity to check not only the death of a mob, but also when and where the mob despawned.
+This method is based on using a [marker entity](https://minecraft.wiki/w/Marker) as a passenger on a mob that needs to be checked for death. The passenger entity will ride the entity until the end of the death animation, so using this, you can check the `DeathTime` tag of a mob with a death animation. This way also has a unique opportunity to check not only the death of a mob, but also when and where the mob despawned.
 
 Key points:
 * average load on the server
@@ -161,7 +161,7 @@ kill @s
 
 </details>
 
-As of version 1.19.4, you can use the [execute](https://minecraft.wiki/w/Commands/execute#on) `on vehicle` subcommand to select a dying mob:
+As of version 1.19.4, you can use the [execute on vehicle](https://minecraft.wiki/w/Commands/execute#on) subcommand to select a dying mob:
 
 ```mcfunction
 # Command blocks
@@ -212,7 +212,7 @@ Key points:
 
 The difficulty with this method is that you need to get the mob's UUID in Hexadecimal format (`ba7916ab-abc0-4ef6-8a43-391dbffdefcd`), but `/data get` can only get the UUID as a list of int values (`[I;-1166469461,-1413460234,-1975305955,-1073877043]`). Therefore, you need to use a UUID converter. In this article will we use this [UUID converter library](https://github.com/gibbsly/gu) by [@gibbsly](https://github.com/gibbsly).
 
-To convert UUID using this library you need to run the `function gu:convert` as a macro function with the data of the selected mob, and then read the `storage gu:main out` tag.
+To convert UUID using this library, you need to run the `function gu:convert` as a macro function with the data of the selected mob, and then read the `storage gu:main out` tag.
 
 In addition, you need to save the converted UUIDs of mobs in storage and use a macro to insert these UUIDs into your check command.
 

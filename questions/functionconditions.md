@@ -13,7 +13,7 @@
 
 For example, you want to execute a command when `@a[tag=TeamChange]` finds something.
 
-Easiest way to do this is by prefixing the command with an `execute if entity`:
+The easiest way to do this is by prefixing the command with an `execute if entity`:
 
 ```mcfunction
 execute if entity @a[tag=TeamChange,limit=1] run say test

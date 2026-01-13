@@ -26,12 +26,12 @@ _Related:_ [Count how much of X item the player has](/wiki/questions/amountitems
 ### Java
 
 #### Using commands
-First we figure out how many diamonds the player has and store the value in a scoreboard. If the player has the required number of diamonds we give the netherite ingot and clear the diamonds from them.
+First, we figure out how many diamonds the player has and store the value in a scoreboard. If the player has the required number of diamonds, we give the netherite ingot and clear the diamonds from them.
 
-Using command blocks we need to make sure we select the correct player every time, so with the first command we tag the relevant player to later limit our selector to that player.
+Using command blocks, we need to make sure we select the correct player every time, so with the first command we tag the relevant player to later limit our selector to that player.
 
-To avoid the player getting unintentionally re-selected we remove the tag at the end.
-Using functions we can rely on `@s` instead, assuming the function is executed `as` the relevant player.
+To avoid the player getting unintentionally re-selected, we remove the tag at the end.
+Using functions, we can rely on `@s` instead, assuming the function is executed `as` the relevant player.
 
 ```mcfunction
 # Command blocks
@@ -65,8 +65,8 @@ tellraw @s {"text":"You bought a netherite ingot for 5 diamonds","color":"green"
 |--------------|
 |The function `example:buy/netherite` must be run `as` the player|
 
-In 1.20.5 `execute if items` was added, which allows to count items in a diferent way.
-To use this method, all command remains the same, as the previus example except the one for counting items that is this one:
+In 1.20.5 `execute if items` was added, which allows to count items in a different way.
+To use this method, all command remains the same, as the previous example except the one for counting items that is this one:
 
 ```mcfunction
 execute as @a[tag=buyer.netherite] store result score @s diamonds run clear @s diamond 0
@@ -85,27 +85,27 @@ execute store result score @s diamonds if items entity @s container.* diamond
 
 | 📝 Note |
 |--------------|
-|The method that uses the `/clear` command will work in 1.20.5+ but it is recomended to use the one specific for that versions (using `execute if items`, that will not work below 1.20.5)|
+|The method that uses the `/clear` command will work in 1.20.5+ but it is recommended to use the one specific for that versions (using `execute if items`, that will not work below 1.20.5)|
 
 #### Using a villager
 Villagers are a passive mob that can be interacted with, and will open the trading GUI.
 
 We can use this vanilla functionality to add our custom trades.
 
-This can be done by manually typing the command, but it is recomeneded to use an [online generator](https://mcstacker.net) to generate the command with ease.
+This can be done by manually typing the command, but it is recommeneded to use an [online generator](https://mcstacker.net) to generate the command with ease.
 
 This method has some advantages and disadvantages.
 
 **Advantages:**
-* Easy to set up, it only require a summon command.
+* Easy to set up, it only requires a summon command.
 * It does not cause performance issues, as we don't run any commands.
 
 **Disadvantages:**
 * Need to be interacted. You can't force the player to buy that item.
-* Limited to give 2 items to get one (workarrounds are possible, like giving a shulker box with items in it).
-* You can't show a succes message (workarrounds are possible).
+* Limited to give 2 items to get one (workarounds are possible, like giving a shulker box with items in it).
+* You can't show a success message (workarounds are possible).
 * It is linked to a place, unless you teleport the villager to the player.
-* 2 players can't acces the trading screen at the same time.
+* 2 players can't access the trading screen at the same time.
 
 Here is an example command:
 ```mcfunction
@@ -132,9 +132,9 @@ Here is the same command but for pre-1.20.5, using nbt data instead:
 ```
 
 ### Bedrock
-In bedrock we have the `hasitem` argument, so it uses less commands than in Java.
+In bedrock, we have the `hasitem` argument, so it uses fewer commands than in Java.
 
-If you don't want to use an NPC can use this method, it is very similar to Java but it uses the `hasitem` argument instead.
+If you don't want to use an NPC can use this method, it is very similar to Java, but it uses the `hasitem` argument instead.
 
 ```mcfunction
 # Command blocks
@@ -142,40 +142,40 @@ tag @p add buyer.netherite
 give @a[tag=buyer.netherite,hasitem={item=diamond,quantity=5..}] netherite_ingot
 tellraw @a[tag=buyer.netherite,hasitem={item=diamond,quantity=5..}] {"rawtext":[{"text":"§2You bought a netherite ingot"}]}
 tellraw @a[tag=buyer.netherite,hasitem={item=diamond,quantity=..5}] {"rawtext":[{"text":"§3You don't have 5 diamonds"}]}
-clear @a[tag=buyer.netherite,hasitem={item=diamond,quantity=5..}] diamond 5
+clear @a[tag=buyer.netherite,hasitem={item=diamond,quantity=5..}] diamond -1 5
 tag @a remove buyer.netherite
 ```
 
 | 📝 Note |
 |--------------|
-|in order for it to work with npc, change `@p` and `@a` to `@initiator`|
-|_Related: [How to setup a NPC?](/wiki/questions/npc)_|
+|in order for it to work with NPC, change `@p` and `@a` to `@initiator`|
+|_Related: [How to set up a NPC?](/wiki/questions/npc)_|
 
 | 📝 Note |
 |--------------|
 |It is super important to clear the diamonds in the last step before removing the tag|
 
 ### Add more than one items
-In this gide we will use just one item, but you can have multiples but it will require a second tag, that must be added if the player has both items.
-Then when we clear the items we are going to clear them for the player with that tag.
+In this guide we will use just one item, but you can have multiples, but it will require a second tag, that must be added if the player has both items.
+Then when we clear the items, we are going to clear them for the player with that tag.
 
-In this example we will buy a gold block with 2 emeralds and 5 diamonds. If you are in Java you will need one scoreboard for each item, assuming you already store the items result in each one.
+In this example, we will buy a gold block with 2 emeralds and 5 diamonds. If you are in java, you will need one scoreboard for each item, assuming you already store the items result in each one.
 
 ```mcfunction
 # Command blocks
 tag @p add buyer.example
 execute as @a[tag=buyer.example] run tag @s[scores={diamonds=5..,emeralds=2..}] add buy.example
 # Run any tellraw to the player with the tag buy.example
-clear @a[tag=buy.example] diamond 5
-clear @a[tag=buy.example] emerald 2
+clear @a[tag=buy.example] diamond -1 5
+clear @a[tag=buy.example] emerald -1 2
 give @a[tag=buy.example] gold_block 1
 
-# And then we remove all the previus used tags
+# And then we remove all the previous used tags
 tag @a remove buy.example
 tag @a remove buyer.example
 ```
 
-In bedrock use the `hasitem` argument instead of `scores`
+In bedrock, use the `hasitem` argument instead of `scores`
 
 ## Score shop
 This method uses a scoreboard as a currency (such as `coins` for this example) and you can buy items with that currency. In this example, you can buy a `diamond` with 10 `coins`.
@@ -183,7 +183,7 @@ You can adjust the items and the prices by editing the command item and quantity
 
 ### Java and Bedrock
 When the player wants to buy the item, run this commands in order. It can be achieved with a button, an impulse command block and a chain of command blocks behind as an example.
-In this example the currency is a `dummy` scoreboard called `coins`.
+In this example, the currency is a `dummy` scoreboard called `coins`.
 
 #### With command blocks
 

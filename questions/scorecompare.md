@@ -104,13 +104,13 @@ This now allows to compare values more accurately because it supports non-intege
 
 ### 1.15 and above
 
-Since version 1.15 you can also use [predicates](https://minecraft.wiki/w/Predicate) in a datapack to compare scores. Unlike using the `if score` subcommand, you cannot, in most cases, compare the score values between two entities. Basically this is only available in mob loot tables and you can only compare the score between the killed mob (`this`) and the entity that killed the mob (`killer` / `killer_player`), or the projectile that killed the mob (`direct_killer`). In other cases, you can only check the score of the selected entity (`this`) and score [fakename](/wiki/questions/fakeplayer).
+Since version 1.15 you can also use [predicates](https://minecraft.wiki/w/Predicate) in a datapack to compare scores. Unlike using the `if score` subcommand, you cannot, in most cases, compare the score values between two entities. Basically this is only available in mob loot tables, and you can only compare the score between the killed mob (`this`) and the entity that killed the mob (`killer` / `killer_player`), or the projectile that killed the mob (`direct_killer`). In other cases, you can only check the score of the selected entity (`this`) and score [fakename](/wiki/questions/fakeplayer).
 
 You can compare scores in a predicate using the `minecraft:entity_scores` condition to compare the score of the selected entity with a specific value or a specified range of values, as well as using the `minecraft:value_check` condition, which does the same thing, but without using the entity.
 
 But you can't just use comparison operators (=, >, <, >=, <=), but only compare whether the value is in the specified range.
 
-For `entity_score` condition, you can compare the value of the selected entity with an exact value specified manually or a range (`min` and `max`). When using range can use for each min and max:
+For `entity_score` condition, you can compare the value of the selected entity with an exact value specified manually or a range (`min` and `max`). When using range, can use for each min and max:
 
 - exact value (supports non-integer values)
 - [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution)

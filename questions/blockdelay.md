@@ -10,6 +10,7 @@
     - [Schedule](#schedule)
     - [Success Count](#success-count)
     - [Command block minecart](#command-block-minecart)
+    - [`time_check` predicate](#time_check-predicate)
     - [Falling blocks or entities](#falling-blocks-or-entities)
 
 ## Bedrock
@@ -233,7 +234,18 @@ These cause no block updates and require no entities or scoreboard objectives, b
 
 
 ### Command block minecart
-The entity [`command_block_minecart`](https://minecraft.wiki/w/Minecart_with_Command_Block) execute the written command every 4 ticks. Keep in mind that people can break the minecart (but it will **not** drop the command block).
+The entity [`command_block_minecart`](https://minecraft.wiki/w/Minecart_with_Command_Block) executes the written command every 4 ticks. Keep in mind that people can break the minecart (but it will **not** drop the command block).
+
+### `time_check` predicate
+If the gamerule `advance_time`/`doDayLightCycle` is set to `true` you can check for a value in a specific period. In the below example, the predicate suceeds every 5 seconds.
+
+```json
+{
+  "condition": "minecraft:time_check",
+  "value": 1,
+  "period": 100
+}
+```
 
 ### Falling blocks or entities
 Other methods such as a falling block clock exist and can be convenient, but cause block updates, lighting updates, and requires an entity.

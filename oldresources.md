@@ -10,7 +10,7 @@
   - [Commands](#commands)
     - [Utilities](#utilities)
     - [References](#references)
-  - [Loot tables (& predicates)](#loot-tables-predicates)
+  - [Loot tables (& predicates)](#loot-tables--predicates)
     - [Utilities](#utilities)
     - [References](#references)
   - [Functions](#functions)

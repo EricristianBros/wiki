@@ -17,7 +17,7 @@ kill @a[team=red]
 
 ## Relies on NBT, 1.12 and below
 
-If your testfor **relies on NBT data**, you will need to use either `scoreboard players set` or `scoreboard players tag` to give them a scoreboard score/tag, then select them based off of that. For example if you have:
+If your testfor **relies on NBT data**, you will need to use either `scoreboard players set` or `scoreboard players tag` to give them a scoreboard score/tag, then select them based off of that. For example, if you have:
 
 ```mcfunction
 testfor @a {OnGround:1b}

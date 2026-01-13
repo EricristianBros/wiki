@@ -109,16 +109,16 @@ execute as @a[scores={respawn=1}] run say I just respawned!
 
 ## Bedrock
 
-In Bedrock the same question is more difficult to answer, since at the time of writing only the `dummy` objective type exists.
+In Bedrock, the same question is more difficult to answer, since only the `dummy` objective type exists.
 
 The best way to do this in bedrock is with the following commands, in this order:
 
 ```mcfunction
-/tag @a add dead
-/tag @e[type=player] remove dead
-/scoreboard players add @a[tag=dead,tag=!still_dead] deathCount 1
-/tag @a add still_dead
-/tag @e[type=player] remove still_dead
+tag @a add dead
+tag @e[type=player] remove dead
+scoreboard players add @a[tag=dead,tag=!still_dead] deathCount 1
+tag @a add still_dead
+tag @e[type=player] remove still_dead
 ```
 
 Set up a dummy scoreboard called `deathCount` and it will count up every time a player dies.  

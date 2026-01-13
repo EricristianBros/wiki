@@ -31,4 +31,4 @@ To optimize how this performs, you can specify the least common tag in the `@e` 
 scoreboard players tag @e[tag=A] add HasAllTags {Tags:["B","C"]}
 ```
 
-This means that less entities will need to have their NBT checked.
+This means that fewer entities will need to have their NBT checked.

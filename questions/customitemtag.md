@@ -34,10 +34,10 @@ So, if you were to `give` an item like this:
 
 ```mcfunction
 # 1.20.5 and above
-give @s minecraft:stick[minecraft:custom_data={my_custom_tag:true}]
+give @s stick[minecraft:custom_data={my_custom_tag:true}]
 
 # 1.20.4 and below
-give @s minecraft:stick{my_custom_tag:true}
+give @s stick{my_custom_tag:true}
 ```
 
 Or like this if you want to `summon` item:

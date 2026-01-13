@@ -1,11 +1,44 @@
 # Do something if a player is in certain areas
 
 - [Do something if a player is in certain areas](#do-something-if-a-player-is-in-certain-areas)
+  - [Singe area](#singe-area)
+    - [Sphere selection](#sphere-selection)
+    - [Cubic selection](#cubic-selection)
+    - [Predicates](#predicates)
   - [Hardcoded locations](#hardcoded-locations)
   - [Anchor entities](#anchor-entities)
   - [Block layer](#block-layer)
   - [Predicates](#predicates)
 
+## Singe area
+### Sphere selection
+Selects players in a radius. x y z define the center, `distance` the radius.
+Java: `@a[x=0,y=90,z=0,distance=..6]` selects players up to 6 blocks away.
+`..a` = a or less, `a..` = a or more, `a..b` = between a and b.
+Bedrock uses `r` (max) and `rm` (min) instead of distance.d
+Uses the entity position (center of feet).
+
+### Cubic selection
+Selects players in a box. `x y z` define the origin, `dx dy dz` define the size.
+`dx dy dz` add `+1` on each axis (e.g. `x=37,dx=10` → `37 to 48`).  
+Checks any part of the hitbox, so heads can count 
+
+### Predicates 
+You can select entities using a `location_check` predicate.
+```
+{
+  "condition": "minecraft:location_check",
+  "predicate": {
+    "position": {
+      "x": {
+        "min": 38.2,
+        "max": 41.7
+      }
+    }
+  }
+}
+```
+Unlike the `dx dy dz` arguments, this does not check for an entity's hitbox but for its position.
 
 | 📝 Note |
 |---------|
@@ -82,7 +115,7 @@ For example, you want to create an area on your map where the player will be det
 
 ```mcfunction
 # Command block / tick function (1.20.5+)
-execute as @a at @s if predicate {condition:"entity_properties",entity:"this",predicate:{flags:{is_sneaking:false}}} if block ~ -63 ~ minecraft:red_concrete run say You have been found!
+execute as @a at @s if predicate {condition:"entity_properties",entity:"this",predicate:{flags:{is_sneaking:false}}} if block ~ -63 ~ red_concrete run say You have been found!
 ```
 
 ## Predicates

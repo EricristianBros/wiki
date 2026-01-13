@@ -35,7 +35,7 @@ Next we need to store the value of `/data get`'s result into a scoreboard object
 execute store result score <target> <objective> run <command>
 ```
 
-This will run `<command>`, and store the result into the the `<target>`'s `<objective>` score. So, putting it together, you could do something like this:
+This will run `<command>`, and store the result into the `<target>`'s `<objective>` score. So, putting it together, you could do something like this:
 
 ```mcfunction
 execute store result score @s y_pos run data get entity @s Pos[1] 100
@@ -54,7 +54,7 @@ execute store result block <pos> <path> (byte|double|float|int|long|short) <scal
 
 The `<command>` you'll want to run is `/scoreboard players get <target> <objective>`, which returns a specified score as its result.
 
-`<scale>` is similar to how it was for `/data get`; the result will be multiplied by this then written to the NBT path. If you scaled up a position 100* when getting it into a score to preserve accuracy, now is the point you'll want to scale it back down (with a scale of 0.01).
+`<scale>` is similar to how it was for `/data get`; the result will be multiplied by this, then written to the NBT path. If you scaled up a position 100* when getting it into a score to preserve accuracy, now is the point you'll want to scale it back down (with a scale of 0.01).
 
 `(byte|double|float|int|long|short)` is the **data type** to cast this value to, as NBT has multiple ways to represent a number (whereas scores are always `int`s). You'll need this to match the data type of the tag you're storing the value into. 
 

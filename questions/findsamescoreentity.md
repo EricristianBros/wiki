@@ -27,7 +27,7 @@ This method works by changing the executor to all entities that need to be check
 
 ### Method 2: Store the score in a fake player first
 
-This method has the advantage over the first one that it only need to evaluate the selector for the special entity once, but it has the disadvantage that it needs 2 commands. ([what is a fake player?](/wiki/questions/fakeplayer))
+This method has the advantage over the first one that it only needs to evaluate the selector for the special entity once, but it has the disadvantage that it needs 2 commands. ([what is a fake player?](/wiki/questions/fakeplayer))
 
 ```mcfunction
 scoreboard players operation #fakeplayer points = @e[tag=compare,limit=1] points
@@ -35,7 +35,7 @@ execute as @a if score @s points = #fakeplayer points run I have the same points
 ```
 
 When using a datapack, you can use this method for your [Scoreboard ID system](/wiki/questions/linkentity).
-One command copies the `ID` score from the selected player to [fake player](/wiki/questions/fakeplayer) `#this ID` and the second adds the `this` tag to the selected entity, so that in the following commands you can simply select all entities except `this` entity. And after that you can easily select any entity that has the same `ID` score in any target selector. At the end of the function you need to remove `this` tag. 
+One command copies the `ID` score from the selected player to [fake player](/wiki/questions/fakeplayer) `#this ID` and the second adds the `this` tag to the selected entity, so that in the following commands you can simply select all entities except `this` entity. And after that, you can easily select any entity that has the same `ID` score in any target selector. At the end of the function, you need to remove `this` tag. 
 
 Below is an example of a function and predicate that selects an entity with the same `ID` score as the selected player:
 
@@ -85,7 +85,7 @@ tag @s remove this
 
 ### Method 3: Keeping the context through location
 
-In this method we change the execution _location_ to be the player(s) and the execution _entity_ to be the entities to be compared to. That way `@p` is all the players respectively and `@s` is the entity to compare to. We can then get the player back into the execution chain using `@p`. 
+In this method, we change the execution _location_ to be the player(s) and the execution _entity_ to be the entities to be compared to. That way, `@p` is all the players respectively and `@s` is the entity to compare to. We can then get the player back into the execution chain using `@p`. 
 
 ```mcfunction
 execute at @a as @e if score @s id = @p id run ...
@@ -97,7 +97,7 @@ execute at @a as @e if score @s id = @p id run ...
 |---------|
 |This method also works in bedrock before new execute|
 
-In bedrock this whole endeavor requires a few more commands, as execute doesn't have any subcommands like that and `/scoreboard players test` only allows for hardcoded ranges. Instead the way to go here is to remove the score from all the entities that need to be checked and then checking whether their score is 0.
+In bedrock before new `execute`, this whole endeavor requires a few more commands, as execute doesn't have any subcommands like that and `/scoreboard players test` only allows for hardcoded ranges. Instead the way to go here is to remove the score from all the entities that need to be checked and then checking whether their score is 0.
 
 Again, we're assuming that the scoreboard objective you want to compare is called `points`, that we want to find any player with the same score, and that the entity to compare to is the only entity tagged with `compare`.
 

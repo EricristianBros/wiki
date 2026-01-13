@@ -1,5 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  <script>
+
+redirects = {
+  "detectitem" : ["item","itemdetect","itemdetection","itemdetection","itemcheck","inventorydetect","detectitems","items"],
+  "customitemtag" : ["customitemtags","custom_data","customdata","itemtag","itemtagcustom","itemtags","customdataitem"],
+  "amountitems" : ["numitems","numberofitems","itemamount","itemcount","itemcounter","amountitem","amountofitems","itemscount","quantityofitems","countofitems","numitem"],
+  "itemclick" : ["clickitem","rightclick","click","clickonitem","interactionclick","interaction","leftclick","carrotonastick","coas"],
+  "giveitembedrock" : ["giveitembc","givebedrock","bedrockitemgive","bedrockgiveitem"],
+  "modifyinventory" : ["inventorymodify","changeinventory","modifyinv","changeinv","itemmodifier","invmod","inventoryedit","editinventory","inventoryedit"],
+  "randomnumber" : ["rnd","randomnum","random","randomvalue","randomresult","scoreboardrandom","randomscoreboard","randomscore","rndnum","randint","rndint"],
+  "nbttransfer" : ["copynbt","nbtcopy","executestore","transfernbt"],
+  "scorecompare" : ["comparescore","scorecheck","comparisonofscores"],
+  "findsamescoreentity": ["findlinkedentity","findsamescoreplayer","findlinkedplayer"],
+  "movetoscore" : ["summonatscore","tptoscore","movitoscore","tpatscore","tpscore","scoretp","scoremove"],
+  "changeofscore" : ["scorechange","changeofscorebaord","scoreboardchange","changescore"],
+  "linkentity" : ["entitylink","scoreboardid","id","linktoentity"],
+  "highestscore": ["topscore","maxscore","minscore","lowscore","leaderboard","lowestscore","leaderboard","maxscore","minscore","topscore","bestscore"],
+  "runonce" : ["executeonce","run1time","run1","runonetime","onceexecution","executeonce","execute1"],
+  "areas" : ["regions","zones","area","location","locationcheck"],
+  "heighttest" : ["ytest","heightcheck","ycheck","testheight"],
+  "playerdeaths" : ["deaths","deathcount","dead","deathscount"],
+  "playerkills" : ["kills","killcount","killed","killedplayers","killamount"],
+  "playerjoins" : ["joins","joined","joinplayer","join","joinedplayer","newplayer","playerjoin","playerjoined"],
+  "storeinventory" : ["saveinventory","backupinventory","storeinv","saveinv","backupinv","storageinventory","inventorystorage","inventorysave","inventorybackup","invstore","invsave","invbackpup"],
+  "lookat" : ["facing","lineofsight","facingdirection"],
+  "moving": ["move","movement","ismoving","detectmovement","movementdetection","locationchange"],
+  "functionconditions" : ["conditionalfunction","conditionalfunctions","functioncondition","functionsconditions","functionscondition","functionif","functiontestfor"],
+  "blockinvert" : ["not","invertresult","notgate","invertblock","resultinvert","unless"],
+  "numplayers" : ["playercount","amountplayers","playercounter","playernumbers","numberplayer","playerscount","countplayer"],
+  "tagentity" : ["entitytag"],
+  "angermob" : ["mobanger","angerentity","aggromob","aggro"],
+  "shootfacing" : ["shootdirection","shootlookat","shootlook","facingshoot","directionshoot","lookatshot"],
+  "mobdeaths" : ["mobkills","deathmob","deathsmobs","mobsdeath","killsmob","killmob"],
+  "hostilefriendly" : ["friendlymob","pvp","nopvp","disablepvp","disablehostile"],
+  "npc" : ["bedrocknpc","npcbedrock"],
+  "blockdelay" : ["timer","scoreboardtimer","delay","delaytimer"],
+  "compasstoplayer" : ["playercompass","compassplayer"],
+  "raycast" : ["raycasting","ray"],
+  "makecircle" : ["createcircle","drawcircle"],
+  "customcommands" : ["customcommand","triggercommand","commandcustom"],
+  "fakeplayer" : [],
+  "range" : ["2dots","twodots","ranges"],
+  "commandcontext" : ["cmdcontext","atvsas"],
+  "escaping" : ["escape"],
+  "multipletags" : [],
+}
+
+const path = window.location.pathname;
+const url = window.location.href;
+
+if (path.endsWith("/")) {
+  console.log("Redirecting to " + url.slice(0, -1));
+  window.location.href = url.slice(0, -1);
+}
+if (path.startsWith("/wiki/faq") || path.startsWith("/wiki/faqs") || path.startsWith("/wiki/question") || path.startsWith("/wiki/w")) {
+  window.location.href = url.replace(/\/(faqs|faq|question|w)/, "/wiki");
+}
+if (path.startsWith("/wiki/questions/")) {
+  for (const key in redirects) {
+    for (const alias of redirects[key]) {
+      if (path.endsWith("/" + alias) || path.includes("/" + alias + "/") || path.includes("/" + alias + "?")) {
+        console.log("Redirecting to" + key);
+        window.location.href = url.replace(alias, key);
+        break;
+      }
+    }
+  }
+}
+</script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,44 +76,105 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background-color: #00aced;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
+      background-image: url(https://raw.githubusercontent.com/MinecraftCommands/discord-server-assets/refs/heads/main/invite_backgrounds/mcc_invite_banner.jpg);
     }
     .container {
       text-align: center;
       background-color: #ffffff;
       padding: 40px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     h1 {
       color: #e74c3c;
       font-size: 36px;
     }
-    button {
-      background-color: #3498db;
-      color: white;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+    .cmd-box {
+      font-family: monospace;
+      display: inline-block;
+      background: #000;
+      color: #e6e6e6;
+      padding: 6px 8px;
+      border: 2px solid #3a3a3a;
+      font-size: 14px;
     }
-    button:hover {
-      background-color: #2980b9;
+    .valid {
+      color: #9e9e9e;
+      font-family: monospace;
+    }
+    .invalid {color: #e04b4b;}
+    button {
+      font-family: monospace;
+      font-size: 14px;
+      color: #e0e0e0;
+      padding: 6px 16px;
+      background: #7b7b7b;
+      border: 2px solid #373737;
+      box-shadow:inset 1px 1px 0 #ffffff,inset -1px -1px 0 #4a4a4a;
+      cursor: pointer;
+    }
+    button:hover {background: #8b8b8b;}
+    button:active {
+      background: #6b6b6b;
+      box-shadow: inset 1px 1px 0 #4a4a4a, inset -1px -1px 0 #ffffff;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <img class="logo" src="https://raw.githubusercontent.com/MinecraftCommands/discord-server-assets/refs/heads/main/logos/default.gif" alt="Minecraft Commands Logo" width="100" height="100", style="border-radius: 5%;"><br><br>
     <h1>404: Page Not Found</h1>
-    <button onclick="window.location.href='https://minecraftcommands.github.io/wiki';">Go back to the Table of Contents</button><br>
-    <p>If you encounter any issues, you can <a href="https://github.com/MinecraftCommands/wiki/issues" target="_blank">create a GitHub issue</a>.</p>
+    <div id="cmd" class="cmd-box"></div><br><br>
+    <div class="valid">Unknown or incomplete url. See below for error at <span id="invalid-path"></span> &lt--[HERE]</div><br>
+    <button onclick="window.location.href='https://minecraftcommands.github.io/wiki';">Go back to the Table of Contents</button><br><br>
+    <button onclick="history.back();">Go to previous page</button><br>
+    <p>If you encounter any issues or think this is an error, you can <a href="https://github.com/MinecraftCommands/wiki/issues" target="_blank">create a GitHub issue</a>.</p>
   </div>
 </body>
+<script>
+const allowed = ["questions","resources","bcresources","debugging","optimising","CONTRIBUTING","404.html"];
+const parts = path.split("/").filter(Boolean);
+
+let html = "";
+let invalidParts = [];
+
+if (parts[0] === "wiki") {
+  html += `<span class="valid">/wiki</span>`;
+  if (parts[1]) {
+    if (allowed.includes(parts[1])) {
+      html += `<span class="valid">/${parts[1]}</span>`;
+    } else {
+      html += `<span class="invalid">/${parts[1]}</span>`;
+      invalidParts.push(parts[1]);
+    }
+  }
+  for (let i = 2; i < parts.length; i++) {
+    html += `<span class="invalid">/${parts[i]}</span>`;
+    invalidParts.push(parts[i]);
+  }
+} else {
+  html = `<span class="invalid">/${parts.join("/")}</span>`;
+  invalidParts = parts;
+}
+
+document.getElementById("cmd").innerHTML = html;
+document.getElementById("invalid-path").textContent = invalidParts.length ? "/" + invalidParts.join("/") : "none";
+
+console.error("404 Page Not Found")
+
+const date = new Date();
+if (date.getMonth() === 11 && date.getDate() >= 20 && date.getDate() <= 31) {
+  const logo = document.querySelector('.logo');
+  logo.src = "https://raw.githubusercontent.com/MinecraftCommands/discord-server-assets/refs/heads/main/logos/christmas.gif"
+}
+if (date.getMonth() === 9 && date.getDate() >= 24 && date.getDate() <= 31) {
+  const logo = document.querySelector('.logo');
+  logo.src = "https://raw.githubusercontent.com/MinecraftCommands/discord-server-assets/refs/heads/main/logos/halloween.gif"
+}
+</script>
 </html>

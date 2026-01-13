@@ -22,7 +22,7 @@ This page details information on common problems you might have with a command, 
 * Check for a space at the end of the command, command should **not** end with a space
 * Don't miss out arguments. Common ones to forget are:
   * The coordinates before the NBT data in `/summon`
-  * The coordinates before the command in `/execute`
+  * The coordinates before the command in old `/execute`
   * The old block handling mode (replace, keep, etc.) before NBT data in `/setblock` or `/fill`
   * The block state/datavalue in `/setblock`, `/execute if block` (or in pre-1.13 `/execute ~ ~ ~ detect`) or `/fill`
 * Watch out for `“smart quotes”` that word processors might auto-add, only `"normal quotes"` will work. You should use a plain plain text editor (Notepad, Notepad++, Sublime, Code), **not** a word processor or rich text editor (Microsoft Word, Wordpad, Textedit)
@@ -32,7 +32,7 @@ This page details information on common problems you might have with a command, 
   * `/execute run command` instead of `/command`, no longer works, as `execute` can run plugin commands
     * If you have any mods, try vanilla to see if the mod is causing the problem. Even mods like Optifine can cause issues
     * Make sure you don't have a mod that dissables command blocks or functions
-* Make sure command blocks are enabled in `server.properties`
+* Make sure command blocks are enabled in `server.properties` for pre-1.21.11 or the gamerule for bedrock and 1.21.11+ java
 * When using tutorials or [online generators](/wiki/resources) make sure that are for the correct edition (java or bedrock) and version (1.12, 1.17, 1.20...)
 * Check if the command block is in a loaded chunk, you can use the [`/forceload`](https://minecraft.wiki/w/Commands/forceload) command in Java or the [`/tickingarea`](https://minecraft.wiki/w/Commands/tickingarea) command in Bedrock to force a chunk to be always loaded
 * Maybe you set the command to conditional accidentaly and it should be uncoditional, double check that
@@ -44,7 +44,7 @@ This page details information on common problems you might have with a command, 
   * Or viceversa, using 1.13+ execute in pre-1.13
   * The same goes for bedrock new execute
 * Command blocks can only run commands of level permission of 1 or 2
-  * The can **not** ban, kick or deop, for example
+  * They can **not** ban, kick, deop or use `tick`, for example
 * Make sure you are **not** using item components in pre-1.20.5 or item `nbt` in 1.20.5+
 
 ## Functions
@@ -61,7 +61,7 @@ This page details information on common problems you might have with a command, 
 * Don't forget to save changes if editing directly the datapack (with programs like VScode), normally `ctrl+s` (Windows/Lunix) or `cmd+s` (Mac)
 * Don't forget to use `/reload` to reload the functions after making changes
   * Make sure you have the datapack enabled. You can enable the datapack by typing `/datapack enable "<datapack name>"`
-  * When edition world generation you need to leave and rejoin the world in order to save changes (or restart the server).
+  * When edition world generation and other experimental features you need to leave and rejoin the world in order to save changes (or restart the server).
 * Check that you're saving to the place you think you're saving to (right world, right namespace), and running the function you intend to
 * Recursive/looping functions will run `maxCommandChainLength` commands in one tick, then stop, the default value of this gamerule is `65536`
   * To check if a function did **not** end (so it has been cut off by this gamerule) you can set a scoreboard value of a [fakeplayer](wiki/questions/fakeplayer) to 1, run all commands and set it to 0 after that (that command should be the last one in the whole tick). In the next tick you can check if the value is 1 or 0, if its 1, the function has been cutted.
@@ -104,7 +104,7 @@ This page details information on common problems you might have with a command, 
      * Be careful with commands like: `/execute at @a[tag=x] run kill @p`
      * If any player has the tag, they'll kill themself, then kill the next nearest player (as `@p` no longer select them), then the next nearest, etc., despite only one player having the tag
      * `@s` can be used instead to select themself even if they're dead: `/execute as @a[tag=x] run kill @s`
-* `as` and `at` have a diference in [command context](/wiki/questions/commandcontext). `as` change the executor entity and `at` changes the position.
+* `as` and `at` have a diference in [command context](/wiki/questions/commandcontext). `as` changes the executor entity and `at` changes the position.
      * Scheduled functions will lose the context
 * Some commands like `/data` or `/damage` in Java edition can only select one target
   * The command `/data merge entity @e[type=armor_stand] {Invisible:1b}` will **not** work
@@ -126,7 +126,7 @@ This page details information on common problems you might have with a command, 
 * Item data from `/item` or `/give` is put in [the item's `tag` tag](http://minecraft.wiki/Player.dat_format#Item_structure), not directly in the item's root compound tag
 * Minecraft generally won't "fix" data inside an item's `tag` tag; if you give an item with `{ench:[{id:10,lvl:1}]}`, `id` and `lvl` will stay (and need to be tested) as integers, even though they're normally shorts
 * A dropped item entity stores its item data [in an `Item` compound tag](http://minecraft.wiki/Chunk_format#Items_and_XPOrbs), not directly in the entity's root compound tag
-* If you need to include quotes in a string, you'll need to "escape" them by putting \ in front of them. E.G: `{Command:"/say My name is \"\"!"}`
+* If you need to include quotes in a string, you'll need to ["escape"](/wiki/escaping) them by putting \ in front of them. E.G: `{Command:"/say My name is \"\"!"}`
 * If you need to escape a second level, you need to escape both the quotes and the previous backslash E.G: `{Command:"/setblock ~ ~ ~ wall_sign 0 replace {Text1:\"{\\\"text\\\":\\\"hello!\\\"}\"}"}`
 * [Generators are handy](https://mcstacker.com) you can find some in the [Java resources page](/wiki/resources) or in the [Bedrock resources page](/wiki/bcresources)
 * Text editors like [Notepad++](http://i.imgur.com/7XnrEJP.png) can highlight pairs of brackets, helping you put tags in the right place and keep brackets balanced

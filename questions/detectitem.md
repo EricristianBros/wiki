@@ -36,10 +36,10 @@ Let's give a simple example of an item with a custom name and [custom tag](/wiki
 
 ```mcfunction
 # 1.13 - 1.20.4
-give @s minecraft:stick{awesome_stick:true,display:{Name:'{"text":"Awesome Stick"}'}}
+give @s stick{awesome_stick:true,display:{Name:'{"text":"Awesome Stick"}'}}
 
 # 1.20.5+
-give @s minecraft:stick[minecraft:custom_data={awesome_stick:true},minecraft:custom_name='"Awesome Stick"']
+give @s stick[custom_data={awesome_stick:true},custom_name='"Awesome Stick"']
 ```
 
 **Important!** When you create any custom item that the player should not be able to obtain by renaming it at an anvil, always add a [custom tag](/wiki/questions/customitemtag) to your item. When checking the item, only check for the tag, not the item name, because checking the item name can cause problems with proper formatting and makes the command longer. All examples of check items below will be duplicated with checking the item name and checking the custom tag, if applicable.
@@ -129,7 +129,7 @@ if/unless items entity <entities> <slots> <item_predicate>
 An example for checking an item in almost any player slot:
 
 ```mcfunction
-execute as @a if items entity @s container.* minecraft:stick[minecraft:custom_data~{awesome_stick:true}]
+execute as @a if items entity @s container.* stick[custom_data~{awesome_stick:true}]
 ```
 
 This will not include the offhand slot, armor slots and ender_chest slots, so it will require an additional command to check these slots or use a predicate in the datapack.
@@ -195,7 +195,7 @@ This will check every slot in a chest or any container and find all item stacks 
 To check for an item inside an item_frame, projectile or an item on the ground, use `container.0` or `contents` slot:
 
 ```mcfunction
-execute as @e[type=item] if items entity @s contents minecraft:stick[minecraft:custom_data~{awesome_stick:true}]
+execute as @e[type=item] if items entity @s contents stick[custom_data~{awesome_stick:true}]
 ```
 
 ### Predicate
