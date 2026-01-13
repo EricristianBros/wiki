@@ -26,8 +26,6 @@ search:
   button: false
   focus_shortcut_key: 'k'
 enable_copy_code_button: true
-exclude:
-  - 404.html
 nav_enabled: true
 back_to_top: true
 back_to_top_text: "Back to top"
