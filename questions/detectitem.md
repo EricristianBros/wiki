@@ -390,7 +390,7 @@ Detecting a specific item on the ground involves using its name.
 
 | 📝 Note |
 |---------|
-|You can use a [special item tag](/wiki/questions/customitemtag#Bedrock) to differentiate it from other `Dirt` items, this method consists of changing the name with color codes, which can not be differentiate from the normal name|
+|You can use a [special item tag](/wiki/questions/customitemtag#bedrock) to differentiate it from other `Dirt` items, this method consists of changing the name with color codes, which can not be differentiate from the normal name|
 
 ```mcfunction
 kill @e[type=item, name="§r§Dirt"]
