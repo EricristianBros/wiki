@@ -621,7 +621,8 @@ We often see something like `Inventory[0]` in this article. This is an array sel
 
 It is possible to select an item from the array based on its Slot like this: `Inventory[{Slot:10b}]`. We could use this for the "correct slot" method, if it weren't for the fact that we can't use `/item replace` with arbitrary data, but we need to use something that is guaranteed to be an item. So we can't skip the step of first putting it into a container / entity inventory first.
 
-### storing in a chest
+### Storing in a chest
+
 | 📝 Note |
 |---------|
 |This method is not effective (unless you don't want to use functions) and it is **not** multipalyer compatible (unless using 2 chests for every player)|
