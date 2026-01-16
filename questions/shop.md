@@ -166,8 +166,8 @@ In this example, we will buy a gold block with 2 emeralds and 5 diamonds. If you
 tag @p add buyer.example
 execute as @a[tag=buyer.example] run tag @s[scores={diamonds=5..,emeralds=2..}] add buy.example
 # Run any tellraw to the player with the tag buy.example
-clear @a[tag=buy.example] diamond -1 5
-clear @a[tag=buy.example] emerald -1 2
+clear @a[tag=buy.example] diamond 5
+clear @a[tag=buy.example] emerald 2
 give @a[tag=buy.example] gold_block 1
 
 # And then we remove all the previous used tags
@@ -175,7 +175,7 @@ tag @a remove buy.example
 tag @a remove buyer.example
 ```
 
-In bedrock, use the `hasitem` argument instead of `scores`
+In bedrock, use the `hasitem` argument instead of `scores` and add `-1` after the item ID to clear (this is the data value).
 
 ## Score shop
 This method uses a scoreboard as a currency (such as `coins` for this example) and you can buy items with that currency. In this example, you can buy a `diamond` with 10 `coins`.
