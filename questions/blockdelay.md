@@ -1,17 +1,5 @@
 # Add a delay to a command block
 
-  - [Bedrock](#bedrock)
-  - [Java](#java)
-    - [Area Effect Clouds](#area-effect-clouds)
-    - [Marker](#marker)
-    - [Scoreboard](#scoreboard)
-      - [Java 1.13+ and Bedrock](#java-113-and-bedrock)
-      - [Java pre-1.13](#java-pre-113)
-    - [Schedule](#schedule)
-    - [Success Count](#success-count)
-    - [Command block minecart](#command-block-minecart)
-    - [`time_check` predicate](#time_check-predicate)
-    - [Falling blocks or entities](#falling-blocks-or-entities)
 
 ## Bedrock
 
@@ -33,7 +21,7 @@ summon area_effect_cloud ~ ~ ~ {Duration:100}
 
 | 📝 Note |
 |---------|
-|To see area_effect_cloud press `F3 + B` to show hitboxes|
+|To see :aoe: area_effect_cloud press `F3 + B` to show hitboxes|
 
 You can set the `Duration` tag as a positive value or the `Age` tag as a negative value, but then you need to set the `Particle` tag to `"block air"` (1.20.4 and below) or `{type:"block",block_state:"minecraft:air"}` (1.20.5 and above) to prevent it from creating particles.
 
@@ -82,7 +70,7 @@ This is a simple way to execute any command at a specified position once with a 
 
 ### Marker
 
-If you need to execute a command not only once, but every 5 seconds, for example, at specific location, then you can use the [marker entity](https://minecraft.wiki/w/Marker) (1.17+) for this. If you are on an earlier version use an [`area_effect_cloud`](https://minecraft.wiki/w/Lingering_Potion#Area_effect_cloud) that will not despawn or an invisible [`armor_stand`](https://minecraft.wiki/w/Armor_Stand).
+If you need to execute a command not only once, but every 5 seconds, for example, at specific location, then you can use the [marker entity](https://minecraft.wiki/w/Marker) (1.17+) for this. If you are on an earlier version use an :aoe: [`area_effect_cloud`](https://minecraft.wiki/w/Lingering_Potion#Area_effect_cloud) that will not despawn or an invisible :armor_stand: [`armor_stand`](https://minecraft.wiki/w/Armor_Stand).
 
 ```mcfunction
 # Summon

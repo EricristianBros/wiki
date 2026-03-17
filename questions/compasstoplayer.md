@@ -1,8 +1,5 @@
 # Make compass point towards player/location
 
-  - [Java and Bedrock](#java-and-bedrock)
-  - [1.16+ (Java only)](#116-java-only)
-  - [1.17+ (Java only)](#117-java-only)
 
 ## Java and Bedrock
 

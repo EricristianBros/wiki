@@ -1,9 +1,5 @@
 # Detect when a mob has died
 
-  - [Scoreboard](#scoreboard)
-  - [player_killed_entity advancement trigger](#player_killed_entity-advancement-trigger)
-  - [Passenger entity](#passenger-entity)
-  - [Reading data by UUID (1.20.2+)](#reading-data-by-uuid-1202)
 
 This article applies to Java Edition only. For Bedrock Edition, the method is described in this wiki article: [Detect the player killing entities and players](/wiki/questions/playerkills#bedrock)
 

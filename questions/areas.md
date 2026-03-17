@@ -1,14 +1,5 @@
 # Do something if a player is in certain areas
 
-- [Do something if a player is in certain areas](#do-something-if-a-player-is-in-certain-areas)
-  - [Singe area](#singe-area)
-    - [Sphere selection](#sphere-selection)
-    - [Cubic selection](#cubic-selection)
-    - [Predicates](#predicates)
-  - [Hardcoded locations](#hardcoded-locations)
-  - [Anchor entities](#anchor-entities)
-  - [Block layer](#block-layer)
-  - [Predicates](#predicates)
 
 ## Singe area
 ### Sphere selection
@@ -82,7 +73,7 @@ If for some reason you want to keep commandBlockOutput on and don't want your ou
 
 If you need to check if the player is in one of several spherical areas, for example to switch gamemode to adventure, then you can use some kind of entity as an anchor to check if the player is nearby.
 
-For versions before 1.17 you can use armor_stand or area_effect_cloud, but since version 1.17 it is strongly recommended to use an [marker entity](https://minecraft.wiki/w/Marker) to mark a place.
+For versions before 1.17 you can use :armor_stand: armor_stand or area_effect_cloud, but since version 1.17 it is strongly recommended to use an [marker entity](https://minecraft.wiki/w/Marker) to mark a place.
 
 ```mcfunction
 # Summon marker
@@ -105,7 +96,7 @@ give @s bat_spawn_egg{EntityTag:{id:"minecraft:marker",Tags:["adventure_area"]},
 give @s minecraft:bat_spawn_egg[entity_data={id:"minecraft:marker",Tags:["adventure_area"]},item_name='"Adventure Area Marker"']
 ```
 
-Because in bedrock edition we can't give a custom spawn egg (some exceptions apply, see [give custom item in Bedrock](wiki/questions/giveitembedrock)), you will need to manually tag the entity with the `/tag` command and use `armor_stand` instead of `marker`.
+Because in bedrock edition we can't give a custom spawn egg (some exceptions apply, see [give custom item in Bedrock](wiki/questions/giveitembedrock)), you will need to manually tag the entity with the `/tag` command and use :armor_stand: `armor_stand` instead of `marker`.
     
 ## Block layer
 

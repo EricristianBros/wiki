@@ -1,15 +1,5 @@
 # Raycast
 
-  - [What is a raycast?](#what-is-a-raycast)
-  - [Java](#java)
-    - [Without an entity](#without-an-entity)
-    - [With an entity](#with-an-entity)
-  - [Bedrock](#bedrock)
-    - [Without an entity](#without-an-entity)
-    - [With an entity](#with-an-entity)
-      - [Do it all in one tick with commands (using XP orbs)](#do-it-all-in-one-tick-with-commands-using-xp-orbs)
-      - [Using functions (Old execute)](#using-functions-old-execute)
-
 
 | 📝 Note |
 |--------------|

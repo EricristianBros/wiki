@@ -1,24 +1,9 @@
 # Resources
 
+
 This page contains a list of links to utilities and references relating to commands and map making that you may find useful.
 
 Submit a [pull request](https://github.com/MinecraftCommands/wiki/pulls) or create a [GitHub issue](https://github.com/MinecraftCommands/wiki/issues) if you've found a useful tool or reference that you think would fit here.
-
-- [Resources](#resources)
-  - [Commands](#commands)
-    - [Utilities](#utilities)
-    - [References](#references)
-  - [NBT](#nbt)
-    - [Utilities](#utilities)
-    - [References](#references)
-  - [Datapacks](#datapacks)
-    - [Utilities](#utilities)
-    - [References](#references)
-  - [Misc](#misc)
-  - [Resource Packs](#resource-packs)
-    - [Utilities](#utilities)
-    - [References](#references)
-  - [Ask for help](#ask-for-help)
 
 ## Commands
 
@@ -42,6 +27,7 @@ Submit a [pull request](https://github.com/MinecraftCommands/wiki/pulls) or crea
 
 - [irath96](http://irath96.github.io/webNBT/): web nbt editor, no need to download any program
 - [NBT Workbench](https://rttv.ca/main): web nbt editor, no need to download any program
+- [NBT Viewer for VSCode](https://marketplace.visualstudio.com/items?itemName=Misodee.vscode-nbt): VSCode extension to view NBT files
 
 ### References
 
@@ -56,7 +42,8 @@ Submit a [pull request](https://github.com/MinecraftCommands/wiki/pulls) or crea
 
 - [Datapack Helper+](https://marketplace.visualstudio.com/items?itemName=SPGoding.datapack-language-server): syntax highlighter.
 - [Misode’s Generator](https://misode.github.io): loot table, predicate, item modifier, advancement, recipe, dimension, structure and tag generator, between others.
-- [Datapack Assembler](https://far.ddns.me): generate data pack from commands
+- [Datapack Assembler](https://far.ddns.me): generate data packs from text.
+- [Mi-Node](https://marketplace.visualstudio.com/items?itemName=voxel.minode): Misode-like tools direclty inside VSCode
 
 ### References
 
@@ -88,6 +75,11 @@ Submit a [pull request](https://github.com/MinecraftCommands/wiki/pulls) or crea
 - [Shader guide](https://docs.google.com/document/d/15TOAOVLgSNEoHGzpNlkez5cryH3hFF3awXL5Py81EMk/edit?usp=sharing) (SirBenet)
 - [Vanilla Resource Pack Assets](https://mcasset.cloud/)
 
+### YouTube Channels
+
+* [CloudWolf](https://youtube.com/@cl0udwolf)
+* [Conure](https://youtube.com/@conure512)
+* [Infernal Device](https://youtube.com/@infernaldevice)
 
 ## Ask for help
 

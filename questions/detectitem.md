@@ -1,21 +1,5 @@
 # Detect a specific item
 
-  - [Java](#java)
-  - [1.20.5 and above](#1205-and-above)
-    - [Target selector](#target-selector)
-    - [execute if items](#execute-if-items)
-    - [Predicate](#predicate)
-  - [1.20.4 and below](#1204-and-below)
-    - [In the inventory](#in-the-inventory)
-    - [In the selected slot](#in-the-selected-slot)
-    - [On the ground](#on-the-ground)
-    - [Use predicate](#use-predicate)
-  - [Bedrock](#bedrock)
-    - [In the inventory](#in-the-inventory)
-      - [since 1.18.20](#since-11820)
-      - [before 1.18.20](#before-11820)
-    - [On the ground](#on-the-ground)
-
 
 ## Java
 
@@ -59,13 +43,16 @@ Due to changes in different versions, you may receive different results in the c
 # 1.20.2 - 1.20.4
 {id:"minecraft:stick",Count:1b,tag:{awesome_stick:true,display:{Name:'"Awesome Stick"'}}}
 
-# 1.20.5+
+# 1.20.5-1.21.5
 {id:"minecraft:stick",count:1,components:{"minecraft:custom_data":{awesome_stick:true},"minecraft:custom_name":'"Awesome Stick"'}}
+# 1.21.5+
+{id:"minecraft:stick",count:1,components:{"minecraft:custom_data":{awesome_stick:true},"minecraft:custom_name":"Awesome Stick"}}
 ```
 
-As of version 1.20.2, any [JSON text](https://minecraft.wiki/w/Raw_JSON_text_format) will now be represented as plain text, if applicable. So if you give the player an item named `'{"text":"Some Text"}'` it will automatically be converted to `'"Some Text"'` unless you change the color, italic, or any other formatting. This applies not only to items, but also to books, signs, and any other places where JSON text is used.
+As of version 1.20.2, any :json: [JSON text](https://minecraft.wiki/w/Raw_JSON_text_format) will now be represented as plain text, if applicable. So if you give the player an item named `'{"text":"Some Text"}'` it will automatically be converted to `'"Some Text"'` unless you change the color, italic, or any other formatting. This applies not only to items, but also to books, signs, and any other places where :json: JSON text is used. In 1.21.5 the outer quotes aren't used since text components are now SNBT instead of :json: JSON.
 
 **Important!** When checking NBT data, you can only check the data you need, so you don't have to check the item ID or Count tag if it's not important to you, but you can't use the shorthand syntax that is available with the /give command.
+
 So, you can give yourself an item with this command:
 
 ```mcfunction
@@ -111,7 +98,7 @@ In 1.20.5 you can check an item using the NBT data check in the [target selector
 
 </details>
 
-**Note:** The component `“minecraft:custom_data”` is escaped with parentheses because it contains the special character colon. And although you can omit `minecraft:` in /give and other commands, when checking NBT data in the target selector you should always specify the full format, which also includes the [namespace](https://minecraft.wiki/w/Resource_location#Namespaces).
+**Note:** The component `"minecraft:custom_data"` is escaped with parentheses because it contains the special character colon. And although you can omit `minecraft:` in /give and other commands, when checking NBT data in the target selector you should always specify the full format, which also includes the [namespace](https://minecraft.wiki/w/Resource_location#Namespaces).
 
 ### execute if items
 
@@ -178,7 +165,7 @@ execute as @a if items entity @s hotbar.* *[minecraft:damage~{damage:{max:5}}|mi
 
 Using `execute if items` you can check for an item not only in the player's inventory, but also in any slot for entity, [block entity](https://minecraft.wiki/w/Block_entity), item_frame, any projectile, or item on the ground.
 
-You can check any slot block entity (chest, furnace, shulker_box, etc.) using container.<num> for a specific slot or container.* for any slot:
+You can check any slot block entity (chest, furnace, shulker_box, etc.) using container.\<num\> for a specific slot or container.* for any slot:
 
 ```mcfunction
 execute if items block ~ ~ ~ container.* *[minecraft:custom_data~{awesome_stick:true}]

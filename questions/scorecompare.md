@@ -1,11 +1,5 @@
 # Check if a score / storage is equal to, greater than, or less than, another score / storage
 
-  - [Scoreboard](#scoreboard)
-    - [1.13 and above](#113-and-above)
-    - [1.12 and below](#112-and-below)
-  - [Predicate / storage](#predicate-storage)
-    - [1.20.5 and above](#1205-and-above)
-    - [1.15 and above](#115-and-above)
 
 ## Scoreboard
 
@@ -100,7 +94,7 @@ data merge storage example:data {value:7.5f,min:0,max:10}
 
 </details>
 
-This now allows to compare values more accurately because it supports non-integer variable values for comparison.
+This now allows to compare values more accurately because it supports non-:int: integer variable values for comparison.
 
 ### 1.15 and above
 
@@ -112,7 +106,7 @@ But you can't just use comparison operators (=, >, <, >=, <=), but only compare 
 
 For `entity_score` condition, you can compare the value of the selected entity with an exact value specified manually or a range (`min` and `max`). When using range, can use for each min and max:
 
-- exact value (supports non-integer values)
+- exact value (supports non-:int: integer values)
 - [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution)
 - score
 - storage (1.20.5+)

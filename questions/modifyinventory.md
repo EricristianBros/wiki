@@ -1,19 +1,11 @@
 # Modify an item inside a player's inventory
 
-  - [1.20.5 and above](#1205-and-above)
-  - [1.17 and above](#117-and-above)
-    - [item replace](#item-replace)
-    - [item modify](#item-modify)
-  - [1.16 and below](#116-and-below)
-    - [The method:](#the-method)
-    - [The loot table](#the-loot-table)
-    - [The commands:](#the-commands)
 
 _Java only, as NBT data is inaccessible in bedrock, this article is irrelevant for BE._
 
 ## 1.20.5 and above
 
-In this version, the functionality of [item_modifier](https://minecraft.wiki/w/Item_modifier) has been expanded with the ability to filter selected items for modification and the ability to change item ID. And the /item command now has the ability to use item_modifier / [predicates](https://minecraft.wiki/w/Predicate) directly in the game without using a datapack. Values have the same structure as matching JSON files, though they are encoded as SNBT.
+In this version, the functionality of [item_modifier](https://minecraft.wiki/w/Item_modifier) has been expanded with the ability to filter selected items for modification and the ability to change item ID. And the /item command now has the ability to use item_modifier / [predicates](https://minecraft.wiki/w/Predicate) directly in the game without using a datapack. Values have the same structure as matching :json: JSON files, though they are encoded as SNBT.
 
 Quick example:
 

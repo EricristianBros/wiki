@@ -1,10 +1,5 @@
 # Shoot a Projectile/Entity in the direction a player is facing
 
-  - [Using teleports to essentially do vector calculations](#using-teleports-to-essentially-do-vector-calculations)
-    - [Explanation](#explanation)
-  - [Method 1: Let the game do the math for us by using the zero point (simplified)](#method-1-let-the-game-do-the-math-for-us-by-using-the-zero-point-simplified)
-  - [Method 2: Storing all values (for easier manipulation)](#method-2-storing-all-values-for-easier-manipulation)
-  - [Visual bug fix](#visual-bug-fix)
 
 *Java only. This doesn't work in bedrock, and there are currently no known workarounds.*
 
@@ -12,7 +7,7 @@
 
 Shooting a projectile/entity in the direction a player is facing is not trivial, and in the older versions of the game, the process was to basically hardcode a bunch of possible motions for various facing values of the player. That technique however is completely obsolete as of 1.13.  
 
-*This article has been updated to use a `marker` entity. If you're using an older version that doesn't have the marker entity yet, swap it out for an `area_effect_cloud`.*
+*This article has been updated to use a `marker` entity. If you're using an older version that doesn't have the marker entity yet, swap it out for an :aoe: `area_effect_cloud`.*
 
 *Related: [How to detect item click](/wiki/questions/itemclick)*
 
@@ -95,8 +90,8 @@ kill @s
 
 Since version 1.19.4 you can use `summon` inside the `/execute` command, which allows you to simplify shootfacing and combine the command of calling the direction of an entity and modifying the `Motion` tag of the projectile.
 
-Now, instead of a marker that must be manually killed, you can use area_effect_cloud, which will disappear on its own on the next tick. In recent versions, this is no longer the case, but we can still set the `Duration` data to 0 after spawning with `execute store`. In older versions, you can remove `store sucess entity @s Duration int 0` from this tutorial.  
-Also, force loaded coordinates 0 0 0 are no longer required to work, since we are creating and using direction entities within one command, but it is still strongly recommended to load chunks [-1, -1] to [0, 0], since `area_effect_cloud` will not be deleted in unloaded chunks automatically.
+Now, instead of a marker that must be manually killed, you can use :aoe: `area_effect_cloud`, which will disappear on its own on the next tick. In recent versions, this is no longer the case, but we can still set the `Duration` data to 0 after spawning with `execute store`. In older versions, you can remove `store sucess entity @s Duration int 0` from this tutorial.  
+Also, force loaded coordinates 0 0 0 are no longer required to work, since we are creating and using direction entities within one command, but it is still strongly recommended to load chunks [-1, -1] to [0, 0], since :aoe: `area_effect_cloud` will not be deleted in unloaded chunks automatically.
 
 ```mcfunction
 # Summon the projectile entity
@@ -111,7 +106,7 @@ tag @e[tag=projectile] remove projectile
 
 `^ ^ ^1` is used as the throw strength.
 
-You can go ahead and do this using almost just one command block. You can perform all settings using `store success entity`. For example, for a fireball, you can immediately set `ExplosionPower` and `power[1]` so that the projectile does not fly in a straight line, but in an arc:
+You can go ahead and do this using almost just one command block. You can perform all settings using `store success entity`. For example, for a :fireball: fireball, you can immediately set `ExplosionPower` and `power[1]` so that the projectile does not fly in a straight line, but in an arc:
 
 ```mcfunction
 # Command blocks
@@ -127,7 +122,7 @@ However, you may notice that this projectile lags in flight. Read about how to f
 
 *Please note that you probably shouldn't be using this method if method 1 covers your use case.*
 
-This example will assume you have a dummy scoreboard objective set up that is named `pos` and that you're running these commands `as` and `at` the player (in a function). Whenever you see `#<something>` this is a [fake player](/wiki/questions/fakeplayer) that we use for convenient value storage. Because scoreboards, can only hold integer values (whole numbers), we scale up the values by 1000 when storing them and down by 0.001 when putting them back into the Motion tag so we don't lose too much accuracy. We need to use scoreboards however, because we need to do some subtractions which is only conveniently possible with scoreboard operations. (This means that the system will stop working once you go above a position of 2'000'000 on either axis, if that is a concern, change it to 100/0.01, that way you can reach 2/3 to the worldborder without issues.)
+This example will assume you have a dummy scoreboard objective set up that is named `pos` and that you're running these commands `as` and `at` the player (in a function). Whenever you see `#<something>` this is a [fake player](/wiki/questions/fakeplayer) that we use for convenient value storage. Because scoreboards, can only hold :int: integer values (whole numbers), we scale up the values by 1000 when storing them and down by 0.001 when putting them back into the Motion tag so we don't lose too much accuracy. We need to use scoreboards however, because we need to do some subtractions which is only conveniently possible with scoreboard operations. (This means that the system will stop working once you go above a position of 2'000'000 on either axis, if that is a concern, change it to 100/0.01, that way you can reach 2/3 to the worldborder without issues.)
 
 <details markdown="1">
   <summary style="color: #e67e22; font-weight: bold;">See example</summary>

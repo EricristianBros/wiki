@@ -1,9 +1,5 @@
 # Select players with exactly X amount of items?
 
-  - [Java](#java)
-    - [Clear](#clear)
-    - [Execute if items](#execute-if-items)
-  - [Bedrock](#bedrock)
 
 ## Java
 

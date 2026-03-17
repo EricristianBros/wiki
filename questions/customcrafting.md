@@ -1,13 +1,5 @@
 # Do custom crafting (with NBT)
 
-  - [Java](#java)
-    - [Floor Crafting](#floor-crafting)
-    - [Custom Dropper Crafting](#custom-dropper-crafting)
-    - [Custom Knowledge Book Crafting](#custom-knowledge-book-crafting)
-      - [Before 1.20](#before-120)
-      - [After 1.20](#after-120)
-      - [1.20.5 and above](#1205-and-above)
-  - [Bedrock edition addon](#bedrock-edition-addon)
 
 ## Java
 The vanilla crafting system does not support NBT data. Although 1.20.5 added the ability to create recipes with custom crafting data, it still does not support custom data for ingredients. This article provides several ways to create custom crafts that support custom items for both the result and the ingredients.
@@ -444,10 +436,10 @@ If you only need a custom item as a result of crafting, then now you can use onl
 
 </details>
 
-**Note:** If you use a custom tag for an item like `custom:1`, then the recipe will give you an item with the tag `custom:1b` due to the conversion of JSON to NBT format.
+**Note:** If you use a custom tag for an item like `custom:1`, then the recipe will give you an item with the tag `custom:1b` due to the conversion of :json: JSON to NBT format.
 
 ## Bedrock edition addon
-In bedrock edition, you can use addons to make custom recepies, all recipes are stored in the recipes folder in the behavior pack root.
+In bedrock edition, you can use addons to make custom recepies, all recipes are stored in the recipes :folder: folder in the behavior pack root.
 
 You can make a custom recepie for the following blocks:
 * Crafting:

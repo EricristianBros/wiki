@@ -1,7 +1,5 @@
 # Target a player above/below a certain Y level
 
-  - [`dy`](#dy)
-  - [predicate](#predicate)
 
 ## `dy`
 For example, you want to teleport players to a certain point if they go above y=200. To do this, we will use the `dx`/`dy`/`dz` cuboid volume selectors, which allow us to specify a width/height/length in which to match a player.

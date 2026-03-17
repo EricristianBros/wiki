@@ -1,9 +1,7 @@
 # Link an entity to another entity / to a player
 
-_Also known as a **scoreboard ID system**_.
 
-* [Java](#java)
-* [Java and Bedrock](#java-and-bedrock)
+_Also known as a **scoreboard ID system**_.
 
 ## Java
 

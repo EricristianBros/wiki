@@ -1,8 +1,5 @@
 # Detect a change of score
 
-  - [The destructive method](#the-destructive-method)
-  - [The non-destructive method](#the-non-destructive-method)
-
 
 _Both Java and Bedrock_
 

@@ -1,17 +1,5 @@
 # Generate a random number
 
-  - [Bedrock](#bedrock)
-  - [Java](#java)
-    - [/random command](#random-command)
-    - [Have something happen with a random chance](#have-something-happen-with-a-random-chance)
-    - [1: PRNG/LCG](#1-prnglcg)
-    - [2: UUID](#2-uuid)
-    - [3: Loot Tables](#3-loot-tables)
-    - [4: item rotation](#4-item-rotation)
-    - [5: @r / @e[sort=random]](#5-r-esortrandom)
-    - [6: spreadplayers](#6-spreadplayers)
-    - [7: running score](#7-running-score)
-    - [Get the number into the desired range](#get-the-number-into-the-desired-range)
 
 | 📝 Note |
 |---------|
@@ -127,7 +115,7 @@ _The second-best option listed here. More taxing on the server due to its creati
 execute store result score @s random run data get entity @e[type=area_effect_cloud,tag=random_uuid,limit=1] UUIDMost 0.00000000023283064365386962890625
 ```
 
-The NBT tags `UUIDLeast` and `UUIDMost` are both the size of a `long` (64 bits), while `data get` can only return an `int` (32 bits). To shrink the `long` sized value into the size of an `int`, we use the scale value `0.00000000023283064365386962890625` which we get from the value of `1 / (2^32)`. This effectively gives us the upper half of the `long`.
+The NBT tags `UUIDLeast` and `UUIDMost` are both the size of a :long: `long` (64 bits), while `data get` can only return an :int: `int` (32 bits). To shrink the :long: `long` sized value into the size of an :int: `int`, we use the scale value `0.00000000023283064365386962890625` which we get from the value of `1 / (2^32)`. This effectively gives us the upper half of the :long: `long`.
 
 ### 3: Loot Tables
 

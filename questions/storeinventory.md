@@ -1,19 +1,5 @@
 # Store a player's inventory and return it to them at some point
 
-  - [Bedrock](#bedrock)
-    - [Custom Hopper Entity](#custom-hopper-entity)
-    - [`/structure`](#structure)
-  - [Java](#java)
-    - [Storing](#storing)
-      - [In storage](#in-storage)
-      - [In marker entity](#in-marker-entity)
-    - [Returning](#returning)
-      - [Putting things in the original slot (from storage)](#putting-things-in-the-original-slot-from-storage)
-      - [Putting things in the original slot (from marker)](#putting-things-in-the-original-slot-from-marker)
-      - [Don't care about the slot](#dont-care-about-the-slot)
-      - [**Put it in a chest**](#put-it-in-a-chest)
-    - [Some explanations on why we do it this way](#some-explanations-on-why-we-do-it-this-way)
-    - [storing in a chest](#storing-in-a-chest)
 
 This is a rather difficult thing to do that requires some advanced techniques. And due to the matter of the problem, not all details can be covered in detail in this article and are left for the reader to implement and figure out.
 

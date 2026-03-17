@@ -1,9 +1,5 @@
 # How to make custom commands
 
-  - [Java](#java)
-    - [Trigger](#trigger)
-  - [Functions](#functions)
-  - [Bedrock](#bedrock)
 
 ## Java
 ### Trigger
@@ -29,7 +25,7 @@ Any player that wants to run the command must type the `trigger` command in chat
 /trigger example_trigger
 ```
 
-It is possible to add multiple options to one command (like arguments) but it's limited to only 32 bit integers (without the 0, since it is the "default" state). You could perform one acation if the score is 1 and another action if it is 2 and so on.
+It is possible to add multiple options to one command (like arguments) but it's limited to only 32 bit :int: integers (without the 0, since it is the "default" state). You could perform one acation if the score is 1 and another action if it is 2 and so on.
 
 ## Functions
 

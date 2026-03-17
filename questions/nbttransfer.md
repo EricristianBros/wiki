@@ -1,8 +1,5 @@
 # Store an NBT value to a score, and vice versa?
 
-  - [NBT --> Score](#nbt----score)
-  - [Score --> NBT](#score----nbt)
-  - [NBT --> NBT](#nbt----nbt)
 
 Any **numeric** NBT tag, even inside lists, can be set to, or gotten into, a scoreboard value.
 
@@ -22,8 +19,8 @@ data get entity @s Pos[0]
 
 Pos[0] means the first (indexes counting from 0) element of the `Pos` list, so the x coordinate (you can access tags inside of compounds as `compound.tag`).
 
-This is cast into an integer, meaning if you are at `x=73.1031`, the command's result will be just `73`.   
-The optional `[<scale>]` factor lets you multiply the number by something before it's read to an integer, for more accuracy. For example, the following would have the result `7310` (100*x):
+This is cast into an :int: integer, meaning if you are at `x=73.1031`, the command's result will be just `73`.   
+The optional `[<scale>]` factor lets you multiply the number by something before it's read to an :int: integer, for more accuracy. For example, the following would have the result `7310` (100*x):
 
 ```mcfunction
 data get entity @s Pos[0] 100
@@ -66,7 +63,7 @@ execute store result entity @e[type=creeper,limit=1,sort=nearest] Motion[1] doub
 
 ## NBT --> NBT
 
-You can even store directly from an NBT path to another NBT path. Keep in mind though that command results are always cast to integers, even when you just want to transfer from a float to a float.
+You can even store directly from an NBT path to another NBT path. Keep in mind though that command results are always cast to :int: integers, even when you just want to transfer from a :float: float to a :float: float.
 
 For example, to have the nearest pig copy the nearest chicken's x-pos:
 

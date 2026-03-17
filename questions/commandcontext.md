@@ -1,7 +1,5 @@
 # What is command context?
 
-  - [Defaults](#defaults)
-  - [Context in Functions](#context-in-functions)
 
 All commands exist in a __context__.  
 

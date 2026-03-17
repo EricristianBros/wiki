@@ -1,10 +1,5 @@
 # Detect Player Death
 
-  - [Java](#java)
-    - [Just death check](#just-death-check)
-    - [Run command at death position](#run-command-at-death-position)
-    - [Run a command when the player respawns](#run-a-command-when-the-player-respawns)
-  - [Bedrock](#bedrock)
 
 _Related: [Detect Player Kills](/wiki/questions/playerkills)_
 
@@ -30,7 +25,7 @@ scoreboard players reset @a death
 
 To do this, you can use the method described above, but if gamerule `doImmediateRespawn` is true, then the commands from the example above will actually be executed after respawn, which can be a problem if you want to do something at the player's death position.
 
-If you are limited to using command blocks, then you can read the [player data](https://minecraft.wiki/w/Player.dat_format) `LastDeathLocation` tag (1.19+) to get dimension (`dimension`) and position (`pos`). But since the `LastDeathLocation.pos` tag is an Int Array, but the Pos tag entity is a list, you need to first convert the Int Array to a Double list. Then check the `LastDeathLocation.dimension` in which dimension the player died and set this dimension [`execute in <dimension>`](https://minecraft.wiki/w/Commands/execute#in), summon area_effect_cloud and move to the death position and in the same tick execute the command on the position of this area_effect_cloud entity.
+If you are limited to using command blocks, then you can read the [player data](https://minecraft.wiki/w/Player.dat_format) `LastDeathLocation` tag (1.19+) to get dimension (`dimension`) and position (`pos`). But since the `LastDeathLocation.pos` tag is an Int Array, but the Pos tag entity is a list, you need to first convert the :int_array: Int Array to a :double: Double list. Then check the `LastDeathLocation.dimension` in which dimension the player died and set this dimension [`execute in <dimension>`](https://minecraft.wiki/w/Commands/execute#in), summon :aoe: `area_effect_cloud` and move to the death position and in the same tick execute the command on the position of this :aoe: `area_effect_cloud` entity.
 
 Below is an example for 1.19.4 and above versions:
 

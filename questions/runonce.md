@@ -1,8 +1,5 @@
 # Activate a command *once* when a player does something (e.g: enters an area)
 
-  - [Scoreboard](#scoreboard)
-  - [Advancements](#advancements)
-  - [Add/remove tag](#addremove-tag)
 
 | 📝 Note |
 |--------------|

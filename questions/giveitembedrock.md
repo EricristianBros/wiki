@@ -1,9 +1,5 @@
 # How to give a special item (Bedrock)
 
-  - [Loot Table](#loot-table)
-  - [Structure command](#structure-command)
-  - [Physical chest](#physical-chest)
-  - [Structure block](#structure-block)
 
 This article is for **Bedrock only**, as Java can just use NBT or item components to give the special items directly.
 
@@ -30,7 +26,7 @@ Thanks to [loot table functions](https://wiki.bedrock.dev/loot/item-functions.ht
 
 Throw the item(s) on top of a structure block, save the structure with entities (probably as a 1x1x1 sized structure) and disable saving blocks.
 
-Same as the structure block method below, but instead of loading it with a structureblock and teleporting the item, you load it using the [`/structure`](https://minecraft.wiki/Commands/structure) command. It has the advantage over the block method that you don't need to worry about the whole redstone block setting and the issues that come with that, you can just load the structure directly at the player in question and be done with it. It also is easy to use with add-ons as no blocks are needed and the structure can be distributed with the add-on by putting it into the `bp/structures/` folder.
+Same as the structure block method below, but instead of loading it with a structureblock and teleporting the item, you load it using the [`/structure`](https://minecraft.wiki/Commands/structure) command. It has the advantage over the block method that you don't need to worry about the whole redstone block setting and the issues that come with that, you can just load the structure directly at the player in question and be done with it. It also is easy to use with add-ons as no blocks are needed and the structure can be distributed with the add-on by putting it into the `bp/structures/` :folder: folder.
 
 **Make sure to save the structure with a structure void block inside or disable save blocks, or the air might override whatever block the player is currently standing on.**
 

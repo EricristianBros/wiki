@@ -1,18 +1,12 @@
 # What is escaping?
 
-  - [Introduction to Escaping](#introduction-to-escaping)
-  - [Combining Quotes to Avoid Escaping](#combining-quotes-to-avoid-escaping)
-  - [Escaping backslashes](#escaping-backslashes)
-  - [Nested Strings](#nested-strings)
-  - [Escaping in JSON Files](#escaping-in-json-files)
-  - [Common errors](#common-errors)
 
 ## Introduction to Escaping
-Escaping is the process of marking special characters in a string to be interpreted literally rather than as part of a special syntax. Commands and JSON rely on precise syntax, where unescaped characters can break the structure.
+Escaping is the process of marking special characters in a :string: string to be interpreted literally rather than as part of a special syntax. Commands and :json: JSON rely on precise syntax, where unescaped characters can break the structure.
 
-Escaping prevents errors and ensures that commands or JSON structures function as intended. It is essential for handling characters like quotes (`"`) or backslashes (`\`) that are part of the syntax.
+Escaping prevents errors and ensures that commands or :json: JSON structures function as intended. It is essential for handling characters like quotes (`"`) or backslashes (`\`) that are part of the syntax.
 
-Using JSON text components required escaping quotes with a backslash (`\`):
+Using :json: JSON text components required escaping quotes with a backslash (`\`):
 
 ```mcfunction
 /tellraw @a "I said \"Hi\" "

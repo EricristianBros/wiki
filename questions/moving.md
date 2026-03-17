@@ -1,9 +1,5 @@
 # Detect the player moving
 
-  - [Java](#java)
-    - [Predicate](#predicate)
-    - [Commands](#commands)
-  - [Bedrock](#bedrock)
 
 ## Java
 ### Predicate

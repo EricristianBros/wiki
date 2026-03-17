@@ -1,13 +1,5 @@
 # Check whether the player / an entity is looking at something
 
-  - [Java & Bedrock after 1.19.50](#java-bedrock-after-11950)
-  - [Java](#java)
-    - [Predicate](#predicate)
-    - [Advancement](#advancement)
-  - [Bedrock](#bedrock)
-    - [Using Commands (before 1.19.50)](#using-commands-before-11950)
-    - [Using Add-Ons](#using-add-ons)
-  - [Calculate viewing angle](#calculate-viewing-angle)
 
 _This method describes how to check whether the player / an entity is **looking at something specific / predetermined**, like a specific entity or a specific position! If you're looking for a more general approach, [you'll need to use a raycast](/wiki/questions/raycast)._
 

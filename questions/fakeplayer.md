@@ -22,3 +22,5 @@ It is recommended to use special characters inside the fake player names to prev
 ## Things to look out for
 
 When you use this method, if you're using something that could reasonably be an actual player name (like [`Max`](https://namemc.com/profile/Max.1)), and that player happens to be online at that time, you might run into conflicts. As such, it is recommended to use those special characters to make sure no conflicts are possible or use separate scoreboard objectives for fake player scores and real player scores.
+
+Furthermore, plugins could change the player name to contain one of the special characters, make sure to not interfiere with that, specially GeyserMC, which prefix all bedrock players with either `.` or `*`.
