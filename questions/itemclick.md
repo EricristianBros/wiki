@@ -317,9 +317,9 @@ Right-clicking a bundle will take the first item that has. Because it will spawn
 ```mcfunction
 # bedrock
 execute at @e[type=item,name="right_click"] run tag @p add right_click
-replaceitem entity @a[tag=right_click] slot.weapon 0 air
-execute at @e[tag=right_click] run structure load right_click_bundle ~ ~ ~
-execute as @e[tag=rigth_click] at @s run say Right click
+replaceitem entity @a[tag=right_click] slot.weapon.mainhand 0 air
+execute at @a[tag=right_click] run structure load right_click_bundle ~ ~ ~
+execute as @a[tag=right_click] at @s run say Right click
 kill @e[type=item,name="right_click"]
 tag @a[tag=right_click] remove right_click
 ```
