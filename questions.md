@@ -41,7 +41,7 @@ In 1.20.5, unstructured NBT for item stacks (tag field) was replaced with struct
 [Detect a player joining (for the first time)?](/wiki/questions/playerjoin)  
 [Store a players inventory (and give it back later)?](/wiki/questions/storeinventory)  
 [Detect a player looking at something (entity / position)?](/wiki/questions/lookat)  
-[Detect the player moving?](/wiki/questions/moving)  
+[Detect the player moving/sneaking/crawling/sleeping?](/wiki/questions/movement)  
 
 ### Conditions
 
@@ -66,6 +66,7 @@ In 1.20.5, unstructured NBT for item stacks (tag field) was replaced with struct
 [Do raycasting?](/wiki/questions/raycast)   
 [Make a circle (of blocks / entities)?](/wiki/questions/makecircle)  
 [Add custom commands](/wik/questions/customcommands)  
+[Get the player username](/wiki/questions/getusername)  
 
 ## What is...
 
@@ -73,6 +74,7 @@ In 1.20.5, unstructured NBT for item stacks (tag field) was replaced with struct
 [a range? / those two dots `..`?](/wiki/questions/range)  
 [command context?](/wiki/questions/commandcontext)  
 [escaping?](/wiki/questions/escaping)  
+[An NBT path](/wiki/questions/nbtpath)  
 
 ## How do I... (1.12 and below only)
 

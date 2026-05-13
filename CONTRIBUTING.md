@@ -37,7 +37,7 @@ say this is a command
 ````
 ## Editing syntax highlighting
 
-The rules of syntax highlighting are defined in `_includes/head-custom.html`. Regex definitions start at line 6 and color definitions can be found at line 168.
+The rules of syntax highlighting are defined in `_includes/head-custom.html`. Regex definitions start at line 6 and color definitions can be found at line 185. For example, to add highlighting for a backslash:
 
 ```html
 <script>
@@ -92,11 +92,11 @@ Emojis are supported in the wiki as <code>:emoji_name:</code>, and these are the
 
 ### Adding new emojis
 
-To add new emojis, go to the `_includes/head-custom.html` file and add a new entry to the `emojis` object in line 104
+To add new emojis, go to the `_includes/head-custom.html` file and add a new entry to the `emojis` object in line 112 of the file `_includes/head-custom.html`.
 
 ```js
 var emojis = {
-  //existing code here
+  // existing code here
   "new_name": "https://example.com/image.png"
 };
 ```
@@ -104,3 +104,16 @@ var emojis = {
 ## Article names
 
 Keep the article names all lowercase without any separator between words, like how it's done in all existing articles.
+
+## Redirects
+
+You might want to add redirects to your page, like how typing `minecraftcommands.github.io/wiki/questions/item` automatically redirects to `minecraftcommands.github.io/wiki/questions/detectitem`. For that, edit the object found at line 30 in the `404.html` file.
+
+```js
+const redirects = {
+  // existing code here
+  "newpage" : ["commonredirect","alias","otherredirect"]
+}
+```
+
+You can use this for other aliases of your page, common typos or that changing the order of the words in the article name leads to the same page.

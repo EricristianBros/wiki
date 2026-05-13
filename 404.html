@@ -39,24 +39,24 @@ const redirects = {
   "scorecompare" : ["comparescore","scorecheck","comparisonofscores"],
   "findsamescoreentity": ["findlinkedentity","findsamescoreplayer","findlinkedplayer"],
   "movetoscore" : ["summonatscore","tptoscore","movitoscore","tpatscore","tpscore","scoretp","scoremove"],
-  "changeofscore" : ["scorechange","changeofscorebaord","scoreboardchange","changescore"],
-  "linkentity" : ["entitylink","scoreboardid","id","linktoentity"],
+  "changeofscore" : ["scorechange","changeofscorebaord","scoreboardchange","changescore","changeofscoreboard","scoreboardchange","scorebaordchange"],
+  "linkentity" : ["entitylink","scoreboardid","id","linktoentity","entityid"],
   "highestscore": ["topscore","maxscore","minscore","lowscore","leaderboard","lowestscore","bestscore"],
   "runonce" : ["executeonce","run1time","run1","runonetime","onceexecution","executeonce","execute1"],
-  "areas" : ["regions","zones","area","location","locationcheck"],
+  "areas" : ["regions","zones","area","location","locationcheck","dxdydz","dx","areacheck"],
   "heighttest" : ["ytest","heightcheck","ycheck","testheight"],
   "playerdeaths" : ["deaths","deathcount","dead","deathscount"],
   "playerkills" : ["kills","killcount","killed","killedplayers","killamount"],
   "playerjoins" : ["joins","joined","joinplayer","join","joinedplayer","newplayer","playerjoin","playerjoined"],
   "storeinventory" : ["saveinventory","backupinventory","storeinv","saveinv","backupinv","storageinventory","inventorystorage","inventorysave","inventorybackup","invstore","invsave","invbackpup"],
   "lookat" : ["facing","lineofsight","facingdirection"],
-  "moving": ["move","movement","ismoving","detectmovement","movementdetection","locationchange"],
+  "movement": ["move","moving","ismoving","detectmovement","movementdetection","locationchange","movementcheck","moved","movementdetect","crawling","swimming","falling","jumping","flying","crawl","swim","fall","jump","fly"],
   "functionconditions" : ["conditionalfunction","conditionalfunctions","functioncondition","functionsconditions","functionscondition","functionif","functiontestfor"],
   "blockinvert" : ["not","invertresult","notgate","invertblock","resultinvert","unless"],
   "numplayers" : ["playercount","amountplayers","playercounter","playernumbers","numberplayer","playerscount","countplayer"],
   "tagentity" : ["entitytag"],
   "angermob" : ["mobanger","angerentity","aggromob","aggro"],
-  "shootfacing" : ["shootdirection","shootlookat","shootlook","facingshoot","directionshoot","lookatshot"],
+  "shootfacing" : ["shootdirection","shootlookat","shootlook","facingshoot","directionshoot","lookatshot","projectile"],
   "mobdeaths" : ["mobkills","deathmob","deathsmobs","mobsdeath","killsmob","killmob"],
   "hostilefriendly" : ["friendlymob","pvp","nopvp","disablepvp","disablehostile"],
   "npc" : ["bedrocknpc","npcbedrock"],
@@ -65,11 +65,14 @@ const redirects = {
   "raycast" : ["raycasting","ray"],
   "makecircle" : ["createcircle","drawcircle"],
   "customcommands" : ["customcommand","triggercommand","commandcustom"],
-  "fakeplayer" : [],
+  "fakeplayer" : ["fakeplayers","fakeplayerscore"],
   "range" : ["2dots","twodots","ranges"],
   "commandcontext" : ["cmdcontext","atvsas"],
-  "escaping" : ["escape"],
+  "escaping" : ["escape","escapecharacters","escapingcharacters"],
   "multipletags" : [],
+  "nbtpath" : ["nbt","nbtpaths","datapath","datapaths"],
+  "getusername" : ["username","getname","getplayername","playername","playerhead"],
+  "outputlog" : ["logoutput","log","output","contentlog"]
 }
 
 if (path.endsWith("/") && path !== "/") {
@@ -205,6 +208,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   if (date.getMonth() === 9 && date.getDate() >= 24 && date.getDate() <= 31) {
     const logo = document.querySelector('.logo');
     logo.src = "https://raw.githubusercontent.com/MinecraftCommands/discord-server-assets/refs/heads/main/logos/halloween.gif"
+  }
+  if (date.getMonth() === 3 && date.getDate() === 1) {
+    const logo = document.querySelector('.logo');
+    logo.src = "https://raw.githubusercontent.com/MinecraftCommands/discord-server-assets/refs/heads/main/logos/broken.gif"
   }
 });
 </script>

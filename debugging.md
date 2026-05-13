@@ -10,7 +10,7 @@ This page details information on common problems you might have with a command, 
     * Or open and close the command block. If the time on the [previous output message](http://i.imgur.com/k2rmrXS.png) is not updating, the command block is not running
     * If there is no previous output, the command may have never run, or you have its output turned off. Turn the command block's output [on](http://i.imgur.com/s4DYa9L.png) when you are debugging
     * You can fix this by turning the command block to *Needs Redstone*, pressing *Done*, turning it back to *Always Active*, then pressing *Done* again
-    * You can turn on `commandBlockOutput`, to see if it is running
+    * You can turn on `commandBlockOutput`/`command_block_output` gamerule, to see if it is running
 * Check for double &nbsp;spaces between arguments, especially after copy pasting a part of the command. These are ignored in chat, but not elsewhere
 * Check for a space at the end of the command, command should **not** end with a space
 * Don't miss out arguments. Common ones to forget are:
@@ -21,7 +21,7 @@ This page details information on common problems you might have with a command, 
 * Watch out for `“smart quotes”` that word processors might auto-add, only `"normal quotes"` will work. You should use a plain text editor (Notepad, Notepad++, Sublime, Code), **not** a word processor or rich text editor (Microsoft Word, Wordpad, Textedit)
 * Narrow down your problem as much as possible. Remove parts slowly (or build up your command slowly in the first place) until you have just the part that's causing the issue
 * Macs add weird characters that are invisible in-game when the arrow keys are pressed. These will stop the command from working
-* Mods/plugins (especially Essentials) may overwrite vanilla commands. To avoid this you can use`/minecraft:command` instead of `/command` for the vanilla implementation (e.g: `/minecraft:give`)
+* Mods/plugins (especially EssentialsX) may overwrite vanilla commands. To avoid this you can use`/minecraft:command` instead of `/command` for the vanilla implementation (e.g: `/minecraft:give`)
   * `/execute run command` instead of `/command`, no longer works, as `execute` can run plugin commands
     * If you have any mods, try vanilla to see if the mod is causing the problem. Even mods like Optifine can cause issues
     * Make sure you don't have a mod that disables command blocks or functions
@@ -32,7 +32,7 @@ This page details information on common problems you might have with a command, 
 * The command block must be `always active` or have redstone powering it in order for it to run the command
 * Make sure to capitalize the correct letters in the command, for example `/Say` will not work but `/say` will do (in bedrock edition it works differently, as you can capitalize commands)
   * Same goes for scoreboard values, if you capitalized it when creating it, it should be capitalized when you use it
-* The `commandModificationBlockLimit` gamerule (defaults to `32768`) specifies the limit of blocks that can be selected with the `/fill`, `/fillbiome` and `/clone` commands
+* The `commandModificationBlockLimit`/`max_block_modifications` gamerule (defaults to `32768`) specifies the limit of blocks that can be selected with the `/fill`, `/fillbiome` and `/clone` commands
 * Make sure you are **not** using per-1.13 execute in newer versions
   * Or vice versa, using 1.13+ execute in pre-1.13
   * The same goes for bedrock new execute
@@ -151,7 +151,7 @@ This page details information on common problems you might have with a command, 
 * Remember that model paths have `block`/`item` (singular), whereas texture paths have `blocks`/`items` (plural)
 * Check that the syntax of :json: JSON files is valid with a [JSON validator](http://jsonlint.com/)
 * Try something simple like temporarily changing the texture of an apple to verify your changes are going through
-* Text display that displays a translation key will not only require reloading the resource pack when changing the translation, it **will** require rejoining the world in order to see the changes.
+* Text display that displays a translation key will not only require reloading the resource pack when changing the translation, it **will** require rejoining the world or reloading the entity in order to see the changes.
 * Resource packs can override others
 * Some resource packs will **not** work with client-side optimization mods such as Sodium, for example, fullbright.
 
@@ -163,7 +163,7 @@ This page details information on common problems you might have with a command, 
     * `/scoreboard players add @e x 0` will initiate scores to 0 without affecting already set scores
     * You can check if a player has a score set or not with the command `/execute as @a unless score @s x = @s x run ...`
 * `/scoreboard players operation` requires one or both selectors to resolve to a single target.
-* The minimum and maximum value of a scoreboard is ±2,147,483,647
+* The minimum and maximum value of a scoreboard is +2,147,483,647 and 2,147,483,648
 * There are scoreboard criterias that can **not** be edited such as hunger or health.
 * In order to people to use the `/trigger` command, the scoreboard **must** be enabled for that player, you can enable a trigger with this command: `/scoreboard players enable <player_selector> <objective>`.
   * If you reset the scoreboard the player will no longer have the objective enabled

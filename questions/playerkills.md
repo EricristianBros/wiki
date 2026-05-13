@@ -55,7 +55,7 @@ When the player kills a pig, they will run the function `example:kill_entity` as
 
 In Bedrock, this is much more tricky, as there is only the dummy objective type.
 
-The best way this Subreddit has come up with so far is to use a modified loot table, making the entity drop a certain item on death that they otherwise wouldn't drop. _This also works for players, but only if the `keepInventory` gamerule is false._ To change an entities loot table, you will have to modify their behavior file and change the loot table to be your custom one or replace their default loot table if they have one. Find the `minecraft:loot` component (or add it if it doesn't exist) and give it your custom loot table.
+The best way this Subreddit has come up with so far is to use a modified loot table, making the entity drop a certain item on death that they otherwise wouldn't drop. _This also works for players, but only if the `keepInventory`/`keep_inventory` gamerule is false._ To change an entities loot table, you will have to modify their behavior file and change the loot table to be your custom one or replace their default loot table if they have one. Find the `minecraft:loot` component (or add it if it doesn't exist) and give it your custom loot table.
 
 ```json
 "minecraft:loot": {

@@ -13,10 +13,13 @@ Quick example:
 execute if predicate {condition:weather_check, raining:true}
 ```
 
-Here's a simple example of how to add a [food component](https://minecraft.wiki/w/Data_component_format#food) to any item in a player's hand (if the item is not food) without replacing the item completely:
+Here's a simple example of how to add a [food component](https://minecraft.wiki/w/Data_component_format#food) to any item in a player's hand (if the item is not food) without replacing the item completely (modifing `consumable` too for 1.21.2+):
 
 ```mcfunction
+# 1.20.5-1.21.2
 execute as @a if items entity @s weapon *[!minecraft:food] run item modify entity @s weapon {function:"minecraft:set_components", components: {"minecraft:food": {nutrition:1, saturation:2, can_always_eat:true, eat_seconds:3.2}}}
+# 1.21.2+
+execute as @a if items entity @s weapon *[!minecraft:food] run item modify entity @s weapon {function:"minecraft:set_components",components:{"minecraft:food":{nutrition:1,saturation:2,can_always_eat:1b},"minecraft:consumable":{consume_seconds:1.6}}}
 ```
 
 You can also change the item ID without changing any components:
@@ -25,7 +28,7 @@ You can also change the item ID without changing any components:
 execute as @a run item modify entity @s weapon {function:"minecraft:filtered", item_filter: {items:"minecraft:iron_sword"}, modifier: {function:"minecraft:set_item", item:"minecraft:golden_sword"}}
 ```
 
-This example uses the [`minecraft:filtered`](https://minecraft.wiki/w/Item_modifier#:~:text=or%20killer_player.-,filtered,-%E2%80%94Applies%20another%20function) loot function to check that the selected item is `minecraft:iron_sword` and not just any item, and then uses the [`minecraft:set_item`](https://minecraft.wiki/w/Item_modifier#:~:text=is%20selected%20randomly.-,set_item,-%E2%80%94Replaces%20item%20type) function to replace iron_sword with golden_sword. In this case, any custom_data, damage, enchantments and other components that this item contains will not be changed, with the exception of inaccessible data, for example, if the original item had a [max_stack_size](https://minecraft.wiki/w/Data_component_format#max_stack_size) component greater than 1 and after modification you change to an item with a [max_damage](https://minecraft.wiki/w/Data_component_format#max_damage) component, then max_stack_size will be changed by 1.
+This example uses the [`minecraft:filtered`](https://minecraft.wiki/w/Item_modifier#:~:text=or%20interacting_entity..-,filtered,-%E2%80%94Applies%20an%20Item) loot function to check that the selected item is `minecraft:iron_sword` and not just any item, and then uses the [`minecraft:set_item`](https://minecraft.wiki/w/Item_modifier#:~:text=is%20selected%20randomly.-,set_item,-%E2%80%94Replaces%20item%20type) function to replace iron_sword with golden_sword. In this case, any custom_data, damage, enchantments and other components that this item contains will not be changed, with the exception of inaccessible data, for example, if the original item had a [max_stack_size](https://minecraft.wiki/w/Data_component_format#max_stack_size) component greater than 1 and after modification you change to an item with a [max_damage](https://minecraft.wiki/w/Data_component_format#max_damage) component, then max_stack_size will be changed by 1.
 
 ## 1.17 and above
 
@@ -63,7 +66,7 @@ Below is a small example of using the item modifier:
 item modify entity <player> weapon.mainhand example:add_knockback
 ```
 ```json
-# item_modifier example:add_knockback (data/example/item_modifiers/add_knockback.json)
+# item_modifier example:add_knockback (data/example/item_modifier/add_knockback.json)
 {
   "function": "minecraft:set_enchantments",
   "enchantments": {
@@ -72,6 +75,10 @@ item modify entity <player> weapon.mainhand example:add_knockback
   "add": true
 }
 ```
+
+| 📝 Note |
+|---------|
+|For versions before 1.21, the path is `data/example/item_modifiers/add_knockback.json`|
 
 ## 1.16 and below
 

@@ -17,7 +17,7 @@ Rather than printing out all data, you can specify a "path" to get one specific 
 data get entity @s Pos[0]
 ```
 
-Pos[0] means the first (indexes counting from 0) element of the `Pos` list, so the x coordinate (you can access tags inside of compounds as `compound.tag`).
+Pos[0] means the first (indexes counting from 0) element of the `Pos` list, so the x coordinate (you can access tags inside of compounds as `compound.tag`, more information on data paths can be found [in this article](/wiki/questions/nbtpath)).
 
 This is cast into an :int: integer, meaning if you are at `x=73.1031`, the command's result will be just `73`.   
 The optional `[<scale>]` factor lets you multiply the number by something before it's read to an :int: integer, for more accuracy. For example, the following would have the result `7310` (100*x):
@@ -53,7 +53,7 @@ The `<command>` you'll want to run is `/scoreboard players get <target> <objecti
 
 `<scale>` is similar to how it was for `/data get`; the result will be multiplied by this, then written to the NBT path. If you scaled up a position 100* when getting it into a score to preserve accuracy, now is the point you'll want to scale it back down (with a scale of 0.01).
 
-`(byte|double|float|int|long|short)` is the **data type** to cast this value to, as NBT has multiple ways to represent a number (whereas scores are always `int`s). You'll need this to match the data type of the tag you're storing the value into. 
+`(byte|double|float|int|long|short)` is the **data type** to cast this value to, as NBT has multiple ways to represent a number (whereas scores are always :int: `int`s). You'll need this to match the data type of the tag you're storing the value into. 
 
 As an example, setting the nearest creeper's y-motion to 0.05 times the executer's `y_speed` score:
 
@@ -63,9 +63,13 @@ execute store result entity @e[type=creeper,limit=1,sort=nearest] Motion[1] doub
 
 ## NBT --> NBT
 
-You can even store directly from an NBT path to another NBT path. Keep in mind though that command results are always cast to :int: integers, even when you just want to transfer from a :float: float to a :float: float.
+You can even store directly from an NBT path to another NBT path. For example, to have the nearest pig copy the nearest chicken's x-pos you can use `data modify` to copy one entity data to another entity, this even works for non-numeric data like :string: strings and :list: lists and preserves all decimal accuracy.
 
-For example, to have the nearest pig copy the nearest chicken's x-pos:
+```mcfunction
+data modify entity @e[type=pig,limit=1,sort=nearest] Pos[0] set from entity @e[type=chicken,limit=1,sort=nearest] Pos[0]
+```
+
+The other option is with `execute store`. Keep in mind though that command results are always cast to :int: integers, even when you just want to transfer from a :float: float to a :float: float.
 
 ```mcfunction
 execute store result entity @e[type=pig,limit=1,sort=nearest] Pos[0] double 0.01 run data get entity @e[type=chicken,limit=1,sort=nearest] Pos[0] 100

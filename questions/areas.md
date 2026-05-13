@@ -3,16 +3,10 @@
 
 ## Singe area
 ### Sphere selection
-Selects players in a radius. x y z define the center, `distance` the radius.
-Java: `@a[x=0,y=90,z=0,distance=..6]` selects players up to 6 blocks away.
-`..a` = a or less, `a..` = a or more, `a..b` = between a and b.
-Bedrock uses `r` (max) and `rm` (min) instead of distance.d
-Uses the entity position (center of feet).
+This method selects players in a radius, `x y z` define the center, and `distance` the radius.In Java: `@a[x=0,y=90,z=0,distance=..6]` selects players up to 6 blocks away, it uses [ranges](/wiki/questions/range): `..a` = a or less, `a..` = a or more, `a..b` = between a and b. Bedrock uses `r` (max) and `rm` (min) instead of distance. It uses the entity position (center of feet).
 
 ### Cubic selection
-Selects players in a box. `x y z` define the origin, `dx dy dz` define the size.
-`dx dy dz` add `+1` on each axis (e.g. `x=37,dx=10` → `37 to 48`).  
-Checks any part of the hitbox, so heads can count 
+This method selects players in a box. `x y z` define the origin, `dx dy dz` define the size of the bounding box, keep in mind that `dx dy dz` add `1` on each axis (e.g. `x=37,dx=10` is `37` to `48`). Keep in mind that this checks any part of the hitbox not only entity position, so heads can count 
 
 ### Predicates 
 You can select entities using a `location_check` predicate.
@@ -31,6 +25,8 @@ You can select entities using a `location_check` predicate.
 ```
 Unlike the `dx dy dz` arguments, this does not check for an entity's hitbox but for its position.
 
+## Multiple areas
+
 | 📝 Note |
 |---------|
 |Java Syntax, but this can be applied to Bedrock just as well by changing the selector arguments to Bedrock Syntax. Instead of `distance=..X` use `r=X`, instead of `distance=X..Y` use `r=Y,rm=X` and instead of `distance=X..` use `rm=X`.|
@@ -46,7 +42,7 @@ gamemode survival @a[x=0,y=0,z=0,distance=X..]
 
 This method quickly falls apart if you have a non-spherical or non-box shaped area or you want this to apply to more than one area, because a player will always be outside of the other areas, even if they are inside one, so will always end up in survival.
 
-## Hardcoded locations
+### Hardcoded locations
 
 The best way to make sure players are in one of multiple areas without overwriting each other, is to use a tag: So instead of applying the desired effect to each area individually, you tag all players that are in one of the areas and apply the effect once to all of them (or everyone else). But this method requires a separate command block for each location. For a large number of locations, use the anchor entity method.
 
@@ -69,7 +65,7 @@ gamemode survival @a[tag=!inArea,gamemode=!survival]
 
 If for some reason you want to keep commandBlockOutput on and don't want your output to be spammed by this system, check out [this post](https://www.reddit.com/r/MinecraftCommands/comments/mw11xm/do_something_to_players_in_multiple_specific) by [u/Afanofall23](https://www.reddit.com/u/Afanofall23).
 
-## Anchor entities
+### Anchor entities
 
 If you need to check if the player is in one of several spherical areas, for example to switch gamemode to adventure, then you can use some kind of entity as an anchor to check if the player is nearby.
 
@@ -98,7 +94,7 @@ give @s minecraft:bat_spawn_egg[entity_data={id:"minecraft:marker",Tags:["advent
 
 Because in bedrock edition we can't give a custom spawn egg (some exceptions apply, see [give custom item in Bedrock](wiki/questions/giveitembedrock)), you will need to manually tag the entity with the `/tag` command and use :armor_stand: `armor_stand` instead of `marker`.
     
-## Block layer
+### Block layer
 
 If you need to execute a command when a player enters a very randomly shaped area, then you can place under the map, for example, at a height of Y=-63, a layer of some block that you will check under the player.
 
@@ -109,7 +105,7 @@ For example, you want to create an area on your map where the player will be det
 execute as @a at @s if predicate {condition:"entity_properties",entity:"this",predicate:{flags:{is_sneaking:false}}} if block ~ -63 ~ red_concrete run say You have been found!
 ```
 
-## Predicates
+### Predicates
 
 If you need to check multiple cubic, spherical or cylindrical areas, you can also use [predicates](https://minecraft.wiki/w/Predicate) in datapack or command blocks (1.20.5+).
 
