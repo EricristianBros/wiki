@@ -60,6 +60,7 @@ A datapack compiler is a program which allows you to translate code from common 
 ## Misc
 
 - [Order of trigger activations in a tick](https://gist.github.com/misode/77ee37217a69a3c74032679d8084d6c6#file-tick_order-md)
+- [Minecraft Pixel Art](https://minecraft-pixel-art.com/editor/blueprint): Image-to-block build blueprints with material lists, layers, and Java command, NBT and PNG exports.
 
 ## Resource Packs
 
