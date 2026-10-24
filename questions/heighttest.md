@@ -37,7 +37,7 @@ Predicates have a built-in check for the `y` values (alongside with the other ax
 
 ```json
 {
-  "condition": "minecraft:entity_properties",
+  "type": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
     "location": {
@@ -50,3 +50,4 @@ Predicates have a built-in check for the `y` values (alongside with the other ax
   }
 }
 ```
+For versions before 26.3 the `type` field is renamed to `condition`.

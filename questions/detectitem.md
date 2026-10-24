@@ -227,7 +227,7 @@ This is an example of updating a predicate to detect an item with a custom tag:
 
 ```json
 {
-  "condition": "minecraft:entity_properties",
+  "type": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
     "slots": {
@@ -244,6 +244,7 @@ This is an example of updating a predicate to detect an item with a custom tag:
   }
 }
 ```
+For versions before 26.3 the `type` field is renamed to `condition`.
 </details>
 
 **Note:** In 1.20.4 and before, if in the predicate you do not check the item ID, but only the NBT data of the item in the mainhand, then always also check the count item in this slot because of a bug [\[MC-229882\]](https://bugs.mojang.com/browse/MC-229882).
@@ -310,7 +311,7 @@ Here is an example of a predicate and its use in a target selector:
 
 ```json
 {
-  "condition": "minecraft:entity_properties",
+  "type": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
     "equipment": {
@@ -327,7 +328,7 @@ Here is an example of a predicate and its use in a target selector:
   }
 }
 ```
-
+For versions before 26.3 the `type` field is renamed to `condition`.
 </details>
 
 **Note:** If in the predicate you do not check the item ID, but only the NBT data of the item in the mainhand, then always also check the count item in this slot because of a bug [\[MC-229882\]](https://bugs.mojang.com/browse/MC-229882).

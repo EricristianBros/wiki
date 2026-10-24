@@ -12,7 +12,7 @@ This method selects players in a box. `x y z` define the origin, `dx dy dz` defi
 You can select entities using a `location_check` predicate.
 ```
 {
-  "condition": "minecraft:location_check",
+  "type": "minecraft:location_check",
   "predicate": {
     "position": {
       "x": {
@@ -23,7 +23,7 @@ You can select entities using a `location_check` predicate.
   }
 }
 ```
-Unlike the `dx dy dz` arguments, this does not check for an entity's hitbox but for its position.
+Unlike the `dx dy dz` arguments, this does not check for an entity's hitbox but for its position. For versions before 26.3 the `type` field is renamed to `condition`
 
 ## Multiple areas
 
@@ -102,7 +102,7 @@ For example, you want to create an area on your map where the player will be det
 
 ```mcfunction
 # Command block / tick function (1.20.5+)
-execute as @a at @s if predicate {condition:"entity_properties",entity:"this",predicate:{flags:{is_sneaking:false}}} if block ~ -63 ~ red_concrete run say You have been found!
+execute as @a at @s if block ~ -63 ~ red_concrete run say You have been found!
 ```
 
 ### Predicates
@@ -118,10 +118,10 @@ Below is an example of a predicate for checking three cubic areas:
 
 ```json
 {
-  "condition": "minecraft:any_of",
+  "type": "minecraft:any_of",
   "terms": [
     {
-      "condition": "minecraft:location_check",
+      "type": "minecraft:location_check",
       "predicate": {
         "position": {
           "x": {
@@ -140,7 +140,7 @@ Below is an example of a predicate for checking three cubic areas:
       }
     },
     {
-      "condition": "minecraft:location_check",
+      "type": "minecraft:location_check",
       "predicate": {
         "position": {
           "x": {
@@ -159,7 +159,7 @@ Below is an example of a predicate for checking three cubic areas:
       }
     },
     {
-      "condition": "minecraft:location_check",
+      "type": "minecraft:location_check",
       "predicate": {
         "position": {
           "x": {
@@ -180,4 +180,5 @@ Below is an example of a predicate for checking three cubic areas:
   ]
 }
 ```
+For versions before 26.3 the `type` field is renamed to `condition`
 </details>

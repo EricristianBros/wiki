@@ -70,12 +70,14 @@ For this special case, you don't need any of the random number methods, thanks t
 
 ```json
 {
-    "condition": "minecraft:random_chance",
+    "type": "minecraft:random_chance",
     "chance": 0.1
 }
 ```
+For versions before 26.3 the `type` field is renamed to `condition`.
 
 ---
+
 | 📝 Note |
 |---------|
 |The following information is outdated and should **not** be used in the current version of the game, as there are better methods of randomness described above|

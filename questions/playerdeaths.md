@@ -65,7 +65,7 @@ Using a datapack will make executing any command in the death position much easi
       "conditions": {
         "player": [
           {
-            "condition": "minecraft:entity_properties",
+            "type": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
               "nbt": "{Health:0f}"
@@ -85,7 +85,7 @@ Using a datapack will make executing any command in the death position much easi
 advancement revoke @s only example:death
 summon zombie ~ ~ ~ {PersistenceRequired:true,CanPickUpLoot:true}
 ```
-
+For versions before 26.3 the `type` field is renamed to `condition`.
 </details>
 
 You can also use a loot table to drop items in player death, located in `data/minecraft/loot_table/entities/player.json`.

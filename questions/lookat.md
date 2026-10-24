@@ -51,7 +51,7 @@ execute as @a[predicate=example:looking_cow] run say Hi, cow!
 ```json
 # predicate example:looking_cow
 {
-  "condition": "minecraft:entity_properties",
+  "type": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
     "type_specific": {
@@ -63,6 +63,7 @@ execute as @a[predicate=example:looking_cow] run say Hi, cow!
   }
 }
 ```
+For versions before 26.3 the `type` field is renamed to `condition`.
 </details>
 
 ### Advancement
@@ -81,7 +82,7 @@ You can find (and edit) the preset in [misode's advancement generator](https://m
       "conditions": {
         "player": [
           {
-            "condition": "minecraft:entity_properties",
+            "type": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
               "type_specific": {
@@ -109,6 +110,7 @@ You can find (and edit) the preset in [misode's advancement generator](https://m
 advancement revoke @s only example:lookat/cow
 say I am looking at a cow
 ```
+For versions before 26.3 the `type` field in the advancement is renamed to `condition`.
 </details>
 
 ## Bedrock

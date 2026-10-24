@@ -40,10 +40,9 @@ Submit a [pull request](https://github.com/MinecraftCommands/wiki/pulls) or crea
 
 ### Utilities
 
-- [Datapack Helper+](https://marketplace.visualstudio.com/items?itemName=SPGoding.datapack-language-server): syntax highlighter.
+- [Datapack essentials (VSCode plugins)](https://marketplace.visualstudio.com/items?itemName=amandin.dpc-pack): syntax highlighter, autocomplete, optimization helper, between others.
 - [Misode’s Generator](https://misode.github.io): loot table, predicate, item modifier, advancement, recipe, dimension, structure and tag generator, between others.
 - [Datapack Assembler](https://far.ddns.me): generate data packs from text.
-- [Mi-Node](https://marketplace.visualstudio.com/items?itemName=voxel.minode): Misode-like tools direclty inside VSCode
 
 ### References
 
@@ -53,6 +52,10 @@ Submit a [pull request](https://github.com/MinecraftCommands/wiki/pulls) or crea
 - [Advancements](http://minecraft.wiki/Advancements#JSON_Format), The Minecraft Wiki
 - [Dimension](https://minecraft.wiki/w/Dimension_definition), The Minecraft Wiki
 - [Vanilla Data Pack](https://mcasset.cloud/)
+
+### Compilers
+
+A datapack compiler is a program which allows you to translate code from common programing languages (like python or typescript) and convert it to `mcfunction` files. You can find a complete list here: [https://gist.github.com/Ellivers/db296c438f9f87bbf9c79d24f940fe03](https://gist.github.com/Ellivers/db296c438f9f87bbf9c79d24f940fe03)
 
 ## Misc
 
@@ -80,6 +83,7 @@ Submit a [pull request](https://github.com/MinecraftCommands/wiki/pulls) or crea
 * [CloudWolf](https://youtube.com/@cl0udwolf)
 * [Conure](https://youtube.com/@conure512)
 * [Infernal Device](https://youtube.com/@infernaldevice)
+* [slicedlime's Minecraft Pack News](https://www.youtube.com/@MinecraftPackNews)
 
 ## Ask for help
 

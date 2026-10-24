@@ -71,7 +71,7 @@ data merge storage example:data {value:7.5f,min:0,max:10}
 ```json
 # predicate example:storage_compare
 {
-  "condition": "minecraft:value_check",
+  "type": "minecraft:value_check",
   "value": {
     "type": "minecraft:storage",
     "storage": "example:data",
@@ -91,7 +91,7 @@ data merge storage example:data {value:7.5f,min:0,max:10}
   }
 }
 ```
-
+For versions before 26.3 the `"type": "minecraft:value_check"` field is renamed to `condition`.
 </details>
 
 This now allows to compare values more accurately because it supports non-:int: integer variable values for comparison.
@@ -119,7 +119,7 @@ Example to compare that players score `kills` >= score `deaths`:
 ```json
 # execute if score @s kills >= @s deaths
 {
-  "condition": "minecraft:entity_scores",
+  "type": "minecraft:entity_scores",
   "entity": "this",
    "scores": {
      "kills": {
@@ -132,6 +132,7 @@ Example to compare that players score `kills` >= score `deaths`:
   }
 }
 ```
+For versions before 26.3 the `"type": "minecraft:entity_scores"` field is renamed to `condition`.
 </details>
 
 For the <= operator, simply replace `"min"` with `"max"` in the predicate above.
@@ -145,7 +146,7 @@ But if you want to check that score `kills` > `deaths`, then checking in the pre
 # execute if score @s kills > @s deaths
 [
   {
-    "condition": "minecraft:entity_scores",
+    "type": "minecraft:entity_scores",
     "entity": "this",
     "scores": {
       "kills": {
@@ -158,9 +159,9 @@ But if you want to check that score `kills` > `deaths`, then checking in the pre
     }
   },
   {
-    "condition": "minecraft:inverted",
+    "type": "minecraft:inverted",
     "term": {
-      "condition": "minecraft:entity_scores",
+      "type": "minecraft:entity_scores",
       "entity": "this",
       "scores": {
         "kills": {
@@ -175,6 +176,7 @@ But if you want to check that score `kills` > `deaths`, then checking in the pre
   }
 ]
 ```
+For versions before 26.3 the `"type": "minecraft:entity_scores"` and `"type": "minecraft:inverted"` fields are renamed to `condition`.
 
 </details>
 
@@ -186,7 +188,7 @@ If you need to check that `kills` = `deaths` score, then you can do one range ch
 ```json
 # execute if score @s kills = @s deaths
 {
-  "condition": "minecraft:entity_scores",
+  "type": "minecraft:entity_scores",
   "entity": "this",
   "scores": {
     "kills": {
@@ -204,3 +206,4 @@ If you need to check that `kills` = `deaths` score, then you can do one range ch
   }
 }
 ```
+For versions before 26.3 the `"type": "minecraft:entity_scores"` field is renamed to `condition`.

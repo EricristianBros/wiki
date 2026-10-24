@@ -228,6 +228,17 @@ The entity [`command_block_minecart`](https://minecraft.wiki/w/Minecart_with_Com
 If the gamerule `advance_time`/`doDayLightCycle` is set to `true` you can check for a value in a specific period. In the below example, the predicate suceeds every 5 seconds.
 
 ```json
+# 26.3+
+{
+  "type": "minecraft:time_check",
+  "clock": "overworld",
+  "value": 1,
+  "period": 100
+}
+```
+
+```json
+# pre-26.3
 {
   "condition": "minecraft:time_check",
   "value": 1,

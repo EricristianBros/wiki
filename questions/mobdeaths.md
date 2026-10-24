@@ -55,6 +55,47 @@ Here's a quick example to detect if any skeleton type with the tag some\_tag was
     "requirement": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
+        "entity": {
+          "type": "minecraft:all_of",
+          "terms": [
+            {
+              "type": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "minecraft:entity_type": "#minecraft:skeletons",
+                "minecraft:entity_tags": {
+                  "all_of": [
+                    "some_tag"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "example:skeleton_death"
+  }
+}
+```
+```mcfunction
+# function example:skeleton_death
+advancement revoke @s only example:killed_skeleton
+say Skeleton with tag some_tag has died.
+```
+For versions before 26.3 the advancement syntax is a little different, but the main idea is still the same:
+
+<details markdown="1">
+  <summary style="color: #e67e22; font-weight: bold;">See example</summary>
+
+```json
+{
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
@@ -73,12 +114,7 @@ Here's a quick example to detect if any skeleton type with the tag some\_tag was
   }
 }
 ```
-```mcfunction
-# function example:skeleton_death
-advancement revoke @s only example:killed_skeleton
-say Skeleton with tag some_tag has died.
-```
-
+</details>
 </details>
 ----
 
@@ -133,7 +169,7 @@ kill @s
 ```json
 # predicate example:death_mob
 {
-  "condition": "minecraft:entity_properties",
+  "type": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
     "vehicle": {
@@ -144,9 +180,9 @@ kill @s
 
 # predicate example:despawn_mob
 {
-  "condition": "minecraft:inverted",
+  "type": "minecraft:inverted",
   "term": {
-    "condition": "minecraft:entity_properties",
+    "type": "minecraft:entity_properties",
     "entity": "this",
     "predicate": {
       "vehicle": {}
@@ -154,7 +190,7 @@ kill @s
   }
 }
 ```
-
+For versions before 26.3 the `type` fields above (except `term->type`) are renamed to `condition`.
 </details>
 
 As of version 1.19.4, you can use the [execute on vehicle](https://minecraft.wiki/w/Commands/execute#on) subcommand to select a dying mob:

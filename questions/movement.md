@@ -7,7 +7,7 @@ To detect the player moving, you can use the following predicate:
 
 ```json
 {
-  "condition": "minecraft:entity_properties",
+  "type": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
     "movement": {
@@ -18,6 +18,8 @@ To detect the player moving, you can use the following predicate:
   }
 }
 ```
+For versions before 26.3 the `type` field is renamed to `condition`.
+
 This can be used as a target selector `@e[predicate=...]` or with `execute if predicate`, but then it must be `as` an entity
 
 ### Commands
@@ -62,7 +64,7 @@ You can use the `flags` predicate to detect sneaking
 
 ```json
 {
-  "condition": "minecraft:entity_properties",
+  "type": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
     "minecraft:flags": {
@@ -71,6 +73,7 @@ You can use the `flags` predicate to detect sneaking
   }
 }
 ```
+For versions before 26.3 the `type` field is renamed to `condition`.
 
 ## Commands
 
@@ -99,7 +102,6 @@ We can use the [`minecraft:slept_in_bed`](https://minecraft.wiki/w/Advancement_d
 ```json
 # advancement example:slept_in_bed
 {
-  "parent": "minecraft:adventure/root",
   "criteria": {
     "slept_in_bed": {
       "trigger": "minecraft:slept_in_bed"

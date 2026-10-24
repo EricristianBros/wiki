@@ -58,7 +58,7 @@ When using a datapack, you don't have to run these commands in a tick function, 
       "conditions": {
         "entity": [
           {
-            "condition": "minecraft:entity_properties",
+            "type": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
               "type": "minecraft:interaction",
@@ -80,6 +80,7 @@ advancement revoke @s only example:interaction/right_click
 say Right Click!
 execute as @e[type=interaction,tag=click_scan] run data remove entity @s interaction
 ```
+For versions before 26.3 the `type` field in the predicate is renamed to `condition`.
 </details>
 
 ### Left-click

@@ -23,7 +23,7 @@ say this is a command
 ```
 </details>
 
-This is accomplished by typing this
+This is accomplished by typing the following code
 
 ````html
 <details markdown="1">

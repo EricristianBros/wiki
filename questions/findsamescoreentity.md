@@ -49,7 +49,7 @@ tag @s remove this
 ```json
 # predicate example:this_id
 {
-    "condition": "minecraft:entity_scores",
+    "type": "minecraft:entity_scores",
     "entity": "this",
     "scores": {
         "ID": {
@@ -73,7 +73,7 @@ tag @s remove this
     }
 }
 ```
-
+For versions before 26.3 the `type` field is renamed to `condition`.
 </details>
 
 **Note:** In addition, using predicate for the score comparison is preferable based on [performance comparisons](https://www.reddit.com/r/MinecraftCommands/comments/1ceck9n/comment/l1u6z2a) by [u/sanscadre](https://www.reddit.com/u/sanscadre).
